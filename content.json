@@ -1,0 +1,535 @@
+{
+  "meta": {
+    "generatedAt": "2025-11-03T21:02:15.906Z",
+    "page": "/Users/vladimir/Downloads/20251103192750813/index.html"
+  },
+  "colors": {
+    "brand": "#000000",
+    "primary": "#1C7BBD",
+    "buttonBg": "#1C7BBD",
+    "buttonHoverBg": "#196EAA",
+    "link": "#1D1D1B",
+    "footerBg": "#1D1D1B",
+    "footerText": "#FFFFFF",
+    "progress": "#FF7900",
+    "progressTrack": "#FFCC9E"
+  },
+  "textNodes": [
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-115xyw6",
+      "textIndex": 0,
+      "value": {
+        "en": "Suspend Boris Johnson's taxpayer allowance",
+        "ro": "Suspendați indemnizația plătită din taxe a lui Boris Johnson",
+        "es": "Suspendan la asignación del contribuyente de Boris Johnson",
+        "it": "Sospendete l'indennità a carico dei contribuenti di Boris Johnson",
+        "cs": "Pozastavte příspěvek Borise Johnsona hrazený z daní"
+      }
+    },
+    {
+      "selector": "h6.MuiTypography-root.MuiTypography-h6.css-g4u4sr",
+      "textIndex": 0,
+      "value": {
+        "en": "To: The Prime Minister, Keir Starmer and The Cabinet Office",
+        "ro": "Către: Prim-ministrul, Keir Starmer și Cabinet Office",
+        "es": "Para: El Primer Ministro, Keir Starmer y la Oficina del Gabinete",
+        "it": "A: Il Primo Ministro, Keir Starmer e il Cabinet Office",
+        "cs": "Komu: Předseda vlády Keir Starmer a Úřad vlády"
+      }
+    },
+    {
+      "selector": "h2 > strong",
+      "textIndex": 0,
+      "value": {
+        "en": "Petition text",
+        "ro": "Textul petiției",
+        "es": "Texto de la petición",
+        "it": "Testo della petizione",
+        "cs": "Text petice"
+      }
+    },
+    {
+      "selector": "div.card.card-body:nth-of-type(1) > span:nth-of-type(1)",
+      "textIndex": 0,
+      "value": {
+        "en": "Suspend ",
+        "ro": "Suspendați ",
+        "es": "Suspendan ",
+        "it": "Sospendete ",
+        "cs": "Pozastavte "
+      }
+    },
+    {
+      "selector": "div.card.card-body:nth-of-type(1) > span:nth-of-type(2)",
+      "textIndex": 0,
+      "value": {
+        "en": "Boris Johnson’s £115,000 yearly allowance - paid for by us, the taxpayer - until the investigation into reports of his dodgy dealings is done.",
+        "ro": "Indemnizația anuală de 115.000 £ a lui Boris Johnson – plătită de noi, contribuabilii – trebuie suspendată până la finalizarea anchetei privind rapoartele despre afacerile sale dubioase.",
+        "es": "La asignación anual de 115.000 £ de Boris Johnson —pagada por nosotros, los contribuyentes— debe suspenderse hasta que concluya la investigación sobre los informes de sus tratos turbios.",
+        "it": "L’indennità annuale di 115.000 £ di Boris Johnson —pagata da noi contribuenti— deve essere sospesa fino al termine dell’indagine sui suoi affari poco chiari.",
+        "cs": "Roční příspěvek Borise Johnsona ve výši 115 000 £ — placený námi, daňovými poplatníky — by měl být pozastaven do ukončení vyšetřování zpráv o jeho pochybných obchodech."
+      }
+    },
+    {
+      "selector": "div:nth-of-type(3) > strong",
+      "textIndex": 0,
+      "value": {
+        "en": "Why is this important?",
+        "ro": "De ce este important?",
+        "es": "¿Por qué es importante?",
+        "it": "Perché è importante?",
+        "cs": "Proč je to důležité?"
+      }
+    },
+    {
+      "selector": "div:nth-of-type(4) > span",
+      "textIndex": 0,
+      "value": {
+        "en": "Leaked files reveal Boris Johnson’s secret deals, shady lobbying, and cash grabs - including while he was Prime Minister. After leaving office, he cashed in, raking in millions from private gigs and business deals.",
+        "ro": "Documente scurse dezvăluie înțelegeri secrete, lobby dubios și câștiguri rapide ale lui Boris Johnson — inclusiv în timp ce era prim-ministru. După ce a părăsit funcția, a profitat din plin, încasând milioane din apariții private și afaceri.",
+        "es": "Archivos filtrados revelan los tratos secretos, el lobby turbio y los cobros de Boris Johnson —incluso mientras era Primer Ministro—. Tras dejar el cargo, hizo caja, embolsándose millones con actuaciones privadas y negocios.",
+        "it": "File trapelati rivelano gli accordi segreti, il lobbying opaco e i facili guadagni di Boris Johnson —anche mentre era Primo Ministro. Dopo aver lasciato l’incarico, ha fatto cassa, incassando milioni da ingaggi privati e affari.",
+        "cs": "Uniklé dokumenty odhalují tajné dohody, pochybný lobbying a rychlé výdělky Borise Johnsona — a to i v době, kdy byl premiérem. Po odchodu z funkce na tom vydělal, inkasoval miliony z privátních vystoupení a obchodů."
+      }
+    },
+    {
+      "selector": "div:nth-of-type(6) > span",
+      "textIndex": 0,
+      "value": {
+        "en": "And yet he’s still pocketing £115,000 of OUR money a year - an allowance meant for public duties. Media reports suggest he may be using it to prop up his private empire while the ethics watchdog investigates. It stinks.",
+        "ro": "Și totuși, încă încasează 115.000 £ pe an din BANII NOȘTRI — o indemnizație destinată atribuțiilor publice. Presa sugerează că o folosește pentru a-și susține imperiul privat cât timp organismul de etică investighează. Este revoltător.",
+        "es": "Y aun así sigue embolsándose 115.000 £ al año de NUESTRO dinero —una asignación pensada para funciones públicas. Según la prensa, podría estar usándola para apuntalar su imperio privado mientras el organismo de ética investiga. Huele mal.",
+        "it": "Eppure continua a intascare 115.000 £ l’anno dei NOSTRI soldi — un’indennità pensata per doveri pubblici. Secondo i media, potrebbe usarla per sostenere il suo impero privato mentre l’autorità etica indaga. È uno scandalo.",
+        "cs": "A přesto si dál ročně přichází na 115 000 £ z NAŠICH peněz — příspěvku určeného na veřejné povinnosti. Podle médií jej může používat k podpírání svého soukromého impéria během vyšetřování etickou komisí. Je to ostuda."
+      }
+    },
+    {
+      "selector": "div:nth-of-type(8) > span",
+      "textIndex": 0,
+      "value": {
+        "en": "From lobbying Saudi officials to secretly meeting billionaire Peter Thiel before Palantir got NHS data work, the reports of Johnson’s actions are outrageous.",
+        "ro": "De la lobby pe lângă oficiali saudiți la întâlniri secrete cu miliardarul Peter Thiel înainte ca Palantir să primească lucrări pe datele NHS, relatările despre acțiunile lui Johnson sunt scandaloase.",
+        "es": "Desde el lobby a funcionarios saudíes hasta reuniones secretas con el multimillonario Peter Thiel antes de que Palantir obtuviera trabajo con datos del NHS, los informes sobre las acciones de Johnson son escandalosos.",
+        "it": "Dal fare lobby con funzionari sauditi agli incontri segreti con il miliardario Peter Thiel prima che Palantir ottenesse incarichi sui dati del NHS, i resoconti sulle azioni di Johnson sono scandalosi.",
+        "cs": "Od lobbování u saúdských představitelů po tajná setkání s miliardářem Peterem Thielem předtím, než Palantir získal zakázky na data NHS — zprávy o Johnsonových krocích jsou pobuřující."
+      }
+    },
+    {
+      "selector": "div:nth-of-type(10) > span",
+      "textIndex": 0,
+      "value": {
+        "en": "Sign the petition now to suspend his £115,000 annual allowance until the investigation is complete. He doesn’t deserve a penny while under scrutiny.",
+        "ro": "Semnează acum petiția pentru a suspenda indemnizația sa anuală de 115.000 £ până la finalizarea investigației. Nu merită niciun ban cât timp este cercetat.",
+        "es": "Firma ahora la petición para suspender su asignación anual de 115.000 £ hasta que concluya la investigación. No merece ni un penique mientras está bajo escrutinio.",
+        "it": "Firma ora la petizione per sospendere la sua indennità annuale di 115.000 £ fino al termine dell’indagine. Non merita un penny finché è sotto indagine.",
+        "cs": "Podepište nyní petici za pozastavení jeho ročního příspěvku 115 000 £, dokud neskončí vyšetřování. Nezaslouží si ani haléř, dokud je pod dohledem."
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy",
+      "textIndex": 0,
+      "value": {
+        "en": "If you give us permission to contact you, you can ",
+        "ro": "Dacă ne permiteți să vă contactăm, vă puteți ",
+        "es": "Si nos das permiso para contactarte, puedes ",
+        "it": "Se ci dai il permesso di contattarti, puoi ",
+        "cs": "Pokud nám dáte souhlas ke kontaktování, můžete "
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy > a:nth-of-type(1)",
+      "textIndex": 0,
+      "value": {
+        "en": "unsubscribe",
+        "ro": "dezabona",
+        "es": "darte de baja",
+        "it": "annullare l’iscrizione",
+        "cs": "zrušit odběr"
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy",
+      "textIndex": 1,
+      "value": {
+        "en": " at any time.",
+        "ro": " oricând.",
+        "es": " en cualquier momento.",
+        "it": " in qualsiasi momento.",
+        "cs": " kdykoli."
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy",
+      "textIndex": 2,
+      "value": {
+        "en": " Your\n                                            personal information will only be used for the purposes described in our ",
+        "ro": " Informațiile dvs. personale vor fi folosite doar în scopurile descrise în ",
+        "es": " Tu información personal solo se usará para los fines descritos en nuestra ",
+        "it": " I tuoi dati personali verranno usati solo per gli scopi descritti nella nostra ",
+        "cs": " Vaše osobní údaje budou použity pouze pro účely popsané v našich "
+      }
+    },
+    {
+      "selector": "a:nth-of-type(2)",
+      "textIndex": 0,
+      "value": {
+        "en": "privacy policy",
+        "ro": "politica de confidențialitate",
+        "es": "política de privacidad",
+        "it": "informativa sulla privacy",
+        "cs": "zásadách ochrany osobních údajů"
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy",
+      "textIndex": 3,
+      "value": {
+        "en": " such as handing in this campaign to the decision maker.",
+        "ro": " de exemplu pentru înmânarea acestei campanii factorului de decizie.",
+        "es": " por ejemplo para entregar esta campaña a la persona responsable de decidir.",
+        "it": " ad esempio per consegnare questa campagna al decisore.",
+        "cs": " například k předání této kampaně příslušnému rozhodovateli."
+      }
+    },
+    {
+      "selector": "h4.MuiTypography-root.MuiTypography-h4.css-1zbqr0",
+      "textIndex": 0,
+      "value": {
+        "en": "98 206",
+        "ro": "98 206",
+        "es": "98 206",
+        "it": "98 206",
+        "cs": "98 206"
+      }
+    },
+    {
+      "selector": "div.MuiBox-root.css-fmxvnb:nth-of-type(1) > p.MuiTypography-root.MuiTypography-body2.css-19423n5",
+      "textIndex": 0,
+      "value": {
+        "en": "of 200 000 signatures",
+        "ro": "din 200 000 de semnături",
+        "es": "de 200 000 firmas",
+        "it": "di 200 000 firme",
+        "cs": "z 200 000 podpisů"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595 > strong",
+      "textIndex": 0,
+      "value": {
+        "en": "Richard",
+        "ro": "Richard",
+        "es": "Richard",
+        "it": "Richard",
+        "cs": "Richard"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595",
+      "textIndex": 0,
+      "value": {
+        "en": " signed this petition",
+        "ro": " a semnat această petiție",
+        "es": " ha firmado esta petición",
+        "it": " ha firmato questa petizione",
+        "cs": " podepsal(a) tuto petici"
+      }
+    },
+    {
+      "selector": "#member-name-label",
+      "textIndex": 0,
+      "value": {
+        "en": "Name",
+        "ro": "Nume",
+        "es": "Nombre",
+        "it": "Nome",
+        "cs": "Jméno"
+      }
+    },
+    {
+      "selector": "div.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root:nth-of-type(1) > label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl > span.MuiFormLabel-asterisk.MuiInputLabel-asterisk.css-sp68t1",
+      "textIndex": 0,
+      "value": {
+        "en": " *",
+        "ro": " *",
+        "es": " *",
+        "it": " *",
+        "cs": " *"
+      }
+    },
+    {
+      "selector": "#member-phone-label",
+      "textIndex": 0,
+      "value": {
+        "en": "Phone number",
+        "ro": "Număr de telefon",
+        "es": "Número de teléfono",
+        "it": "Numero di telefono",
+        "cs": "Telefonní číslo"
+      }
+    },
+    {
+      "selector": "div.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root:nth-of-type(2) > label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl > span.MuiFormLabel-asterisk.MuiInputLabel-asterisk.css-sp68t1",
+      "textIndex": 0,
+      "value": {
+        "en": " *",
+        "ro": " *",
+        "es": " *",
+        "it": " *",
+        "cs": " *"
+      }
+    },
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-e2i163:nth-of-type(2)",
+      "textIndex": 0,
+      "value": {
+        "en": "Don't display name publicly",
+        "ro": "Nu afișa numele public",
+        "es": "No mostrar el nombre públicamente",
+        "it": "Non mostrare il nome pubblicamente",
+        "cs": "Nezobrazovat jméno veřejně"
+      }
+    },
+    {
+      "selector": "h6.MuiTypography-root.MuiTypography-subtitle2.css-1v33mjh",
+      "textIndex": 0,
+      "value": {
+        "en": "Please confirm your age",
+        "ro": "Confirmați vă rog vârsta",
+        "es": "Confirma tu edad, por favor",
+        "it": "Conferma la tua età",
+        "cs": "Potvrďte prosím svůj věk"
+      }
+    },
+    {
+      "selector": "fieldset.MuiFormControl-root.css-13sljp9 > label.MuiFormLabel-root.MuiFormLabel-colorPrimary.Mui-required > span.MuiFormLabel-asterisk.css-sp68t1",
+      "textIndex": 0,
+      "value": {
+        "en": " *",
+        "ro": " *",
+        "es": " *",
+        "it": " *",
+        "cs": " *"
+      }
+    },
+    {
+      "selector": "label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.Mui-required.css-1ldihec:nth-of-type(1) > span.MuiTypography-root.MuiTypography-body2.css-tw7yoe",
+      "textIndex": 0,
+      "value": {
+        "en": "I am 18+ years old",
+        "ro": "Am 18+ ani",
+        "es": "Tengo 18+ años",
+        "it": "Ho 18+ anni",
+        "cs": "Je mi 18 a více let"
+      }
+    },
+    {
+      "selector": "label.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.Mui-required.css-1ldihec:nth-of-type(2) > span.MuiTypography-root.MuiTypography-body2.css-tw7yoe",
+      "textIndex": 0,
+      "value": {
+        "en": "I am 16 or 17 years old",
+        "ro": "Am 16 sau 17 ani",
+        "es": "Tengo 16 o 17 años",
+        "it": "Ho 16 o 17 anni",
+        "cs": "Je mi 16 nebo 17 let"
+      }
+    },
+    {
+      "selector": "div.MuiFormControl-root.MuiFormControl-fullWidth.css-tzsjye > button.MuiButtonBase-root.MuiButton-root.MuiButton-text",
+      "textIndex": 0,
+      "value": {
+        "en": "Help!",
+        "ro": "Ajutor!",
+        "es": "¡Ayuda!",
+        "it": "Aiuto!",
+        "cs": "Pomoc!"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 0,
+      "value": {
+        "en": "38 Degrees ",
+        "ro": "38 Degrees ",
+        "es": "38 Degrees ",
+        "it": "38 Degrees ",
+        "cs": "38 Degrees "
+      }
+    },
+    {
+      "selector": "sup",
+      "textIndex": 0,
+      "value": {
+        "en": "®",
+        "ro": "®",
+        "es": "®",
+        "it": "®",
+        "cs": "®"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 1,
+      "value": {
+        "en": " | 2025",
+        "ro": " | 2025",
+        "es": " | 2025",
+        "it": " | 2025",
+        "cs": " | 2025"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 2,
+      "value": {
+        "en": "Limited by Guarantee Registered Company No.",
+        "ro": "Societate cu răspundere limitată prin garanție, nr. companiei înregistrate",
+        "es": "Sociedad limitada por garantía, Nº de empresa registrada",
+        "it": "Società a responsabilità limitata mediante garanzia, N. di registrazione",
+        "cs": "Společnost s ručením omezeným na základě garance, reg. č. společnosti"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 3,
+      "value": {
+        "en": "06642193 in England and Wales Registered",
+        "ro": "06642193 în Anglia și Țara Galilor, înregistrată",
+        "es": "06642193 en Inglaterra y Gales, registrada",
+        "it": "06642193 in Inghilterra e Galles, registrata",
+        "cs": "06642193 v Anglii a Walesu, registrována"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 4,
+      "value": {
+        "en": "Office: ",
+        "ro": "Sediu: ",
+        "es": "Oficina: ",
+        "it": "Sede: ",
+        "cs": "Sídlo: "
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 5,
+      "value": {
+        "en": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street",
+        "ro": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street",
+        "es": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street",
+        "it": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street",
+        "cs": "C/O Sedulo London Office 605, Albert House, 256-260 Old Street"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 6,
+      "value": {
+        "en": "London",
+        "ro": "Londra",
+        "es": "Londres",
+        "it": "Londra",
+        "cs": "Londýn"
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-9wysp4",
+      "textIndex": 7,
+      "value": {
+        "en": "EC1V 9DD",
+        "ro": "EC1V 9DD",
+        "es": "EC1V 9DD",
+        "it": "EC1V 9DD",
+        "cs": "EC1V 9DD"
+      }
+    }
+  ],
+  "linksDetailed": [
+    {
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy > a:nth-of-type(1)",
+      "text": {
+        "en": "unsubscribe",
+        "ro": "dezabona",
+        "es": "darte de baja",
+        "it": "annullare l’iscrizione",
+        "cs": "zrušit odběr"
+      },
+      "href": "https://id.38degrees.org.uk/subscriptions/unsubscribe",
+      "target": "_blank",
+      "title": ""
+    },
+    {
+      "selector": "a:nth-of-type(2)",
+      "text": {
+        "en": "privacy policy",
+        "ro": "politica de confidențialitate",
+        "es": "política de privacidad",
+        "it": "informativa sulla privacy",
+        "cs": "zásadách ochrany osobních údajů"
+      },
+      "href": "",
+      "target": "_blank",
+      "title": ""
+    }
+  ],
+  "textBySelector": {},
+  "htmlBySelector": {},
+  "linksBySelector": {},
+  "texts": [],
+  "links": [],
+  "signer": {
+    "names": ["Richard", "Sarah", "Aisha", "Tom"],
+    "intervalMs": 3000,
+    "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595 > strong"
+  },
+  "localization": {
+    "defaultLocale": "en",
+    "urlParam": "lang",
+    "ipLookupUrl": "https://ipapi.co/json/",
+    "localeByCountry": {
+      "RO": "ro",
+      "MD": "ro",
+      "ES": "es",
+      "IT": "it",
+      "CZ": "cs"
+    }
+  },
+  "locales": {
+    "en": {
+      "_note": "Base (English) is defined at the root of this file. Add only overrides here if needed."
+    },
+    "ro": {
+      "_note": "Romanian overrides go here. Example: put translated strings in textBySelector/htmlBySelector or provide full textNodes array.",
+      "textBySelector": {},
+      "htmlBySelector": {},
+      "linksBySelector": {},
+      "texts": [],
+      "links": []
+    },
+    "es": {
+      "_note": "Spanish overrides go here.",
+      "textBySelector": {},
+      "htmlBySelector": {},
+      "linksBySelector": {},
+      "texts": [],
+      "links": []
+    },
+    "it": {
+      "_note": "Italian overrides go here.",
+      "textBySelector": {},
+      "htmlBySelector": {},
+      "linksBySelector": {},
+      "texts": [],
+      "links": []
+    },
+    "cs": {
+      "_note": "Czech overrides go here.",
+      "textBySelector": {},
+      "htmlBySelector": {},
+      "linksBySelector": {},
+      "texts": [],
+      "links": []
+    }
+  }
+}
