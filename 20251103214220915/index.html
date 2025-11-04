@@ -46,6 +46,79 @@
     <title>Suspend Boris Johnson's taxpayer allowance</title>
     <link rel="shortcut icon" href="favicon.png" />
     <script src="../theme.js" defer></script>
+    <script>
+      (function(){
+        // Lightweight localization for the second page when opened directly
+        const getLocalizedValue = (value, locale, def='en') => {
+          if (value == null) return '';
+          if (typeof value !== 'object' || Array.isArray(value)) return String(value);
+          const lc = String(locale||'').toLowerCase();
+          const dl = String(def||'en').toLowerCase();
+          if (value[lc] != null) return String(value[lc]);
+          if (lc === 'cs' && value['cz'] != null) return String(value['cz']);
+          if (lc === 'cz' && value['cs'] != null) return String(value['cs']);
+          if (value[dl] != null) return String(value[dl]);
+          if (dl === 'cs' && value['cz'] != null) return String(value['cz']);
+          if (dl === 'cz' && value['cs'] != null) return String(value['cs']);
+          if (value['en'] != null) return String(value['en']);
+          for (const k of Object.keys(value)) { if (value[k] != null && typeof value[k] !== 'object') return String(value[k]); }
+          return '';
+        };
+        const resolveLocale = (conf)=>{
+          try {
+            const params = new URLSearchParams(location.search);
+            const urlParam = (conf && conf.localization && conf.localization.urlParam) || 'lang';
+            const qp = params.get(urlParam) || params.get('locale');
+            const def = (conf && conf.localization && conf.localization.defaultLocale) || 'en';
+            return (qp || def).toLowerCase();
+          } catch(_) { return 'en'; }
+        };
+        const applyOverlayConfToDoc = (overlayConf, locale, def) => {
+          if (!overlayConf) return;
+          // textBySelector
+          if (overlayConf.textBySelector && typeof overlayConf.textBySelector === 'object') {
+            for (const [sel, text] of Object.entries(overlayConf.textBySelector)) {
+              if (text == null) continue;
+              document.querySelectorAll(sel).forEach((el)=>{ el.textContent = getLocalizedValue(text, locale, def); });
+            }
+          }
+          // htmlBySelector
+          if (overlayConf.htmlBySelector && typeof overlayConf.htmlBySelector === 'object') {
+            for (const [sel, html] of Object.entries(overlayConf.htmlBySelector)) {
+              if (html == null) continue;
+              document.querySelectorAll(sel).forEach((el)=>{ el.innerHTML = getLocalizedValue(html, locale, def); });
+            }
+          }
+          // linksBySelector
+          if (overlayConf.linksBySelector && typeof overlayConf.linksBySelector === 'object') {
+            for (const [sel, v] of Object.entries(overlayConf.linksBySelector)) {
+              document.querySelectorAll(sel).forEach((a)=>{
+                if (v && typeof v === 'object' && !Array.isArray(v)) {
+                  if (v.text != null) a.textContent = getLocalizedValue(v.text, locale, def);
+                  if (v.href != null) a.setAttribute('href', getLocalizedValue(v.href, locale, def));
+                  if (v.target != null) a.setAttribute('target', getLocalizedValue(v.target, locale, def));
+                  if (v.title != null) a.setAttribute('title', getLocalizedValue(v.title, locale, def));
+                } else {
+                  const t = getLocalizedValue(v, locale, def); if (t) a.textContent = t;
+                }
+              });
+            }
+          }
+        };
+        const run = async () => {
+          try {
+            const r = await fetch('../content.json?ts='+Date.now(), { cache: 'no-store' });
+            if (!r.ok) return;
+            const conf = await r.json();
+            const locale = resolveLocale(conf);
+            const def = (conf && conf.localization && conf.localization.defaultLocale) || 'en';
+            const overlayConf = conf && conf.overlay ? conf.overlay : null;
+            applyOverlayConfToDoc(overlayConf, locale, def);
+          } catch(_) { /* noop */ }
+        };
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true }); else run();
+      })();
+    </script>
 
     <style>
       body > main#app {
@@ -5091,81 +5164,6 @@
         pointer-events: none !important;
         user-select: none !important;
       "
-    ></iframe>
-    <div>
-      <div
-        class="grecaptcha-badge"
-        data-style="bottomright"
-        style="
-          width: 256px;
-          height: 60px;
-          display: block;
-          transition: right 0.3s ease 0s;
-          position: fixed;
-          bottom: 14px;
-          right: -186px;
-          box-shadow: gray 0px 0px 5px;
-          border-radius: 2px;
-          overflow: hidden;
-        "
-      >
-        <div class="grecaptcha-logo">
-          <iframe
-            title="reCAPTCHA"
-            width="256"
-            height="60"
-            role="presentation"
-            name="a-k5aqdfge4il6"
-            frameborder="0"
-            scrolling="no"
-            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-            src="index_4.html"
-          ></iframe>
-        </div>
-        <div class="grecaptcha-error"></div>
-        <textarea
-          id="g-recaptcha-response-100000"
-          name="g-recaptcha-response"
-          class="g-recaptcha-response"
-          style="
-            width: 250px;
-            height: 40px;
-            border: 1px solid rgb(193, 193, 193);
-            margin: 10px 25px;
-            padding: 0px;
-            resize: none;
-            display: none;
-          "
-        >
-0cAFcWeA4bE8f3TrbAJixPmRTUzCHSNYyunAnPlja6JotH2TkxLH1eopyCpEdwP6vqAgH1HJ1SS5gPZvaKQQ3Hahfvn8eEs_9XFhuopSn8KnvIvBruhTjS34dEfN7AuGkPrBejJi40ezqUSLhN_en6R1-PXdB44nOc_H9oc-fcRDhdkMvc_EBGqGtXMJ01Q88azAKy9dMhiQmylDb4Cb-qCsK9J64jdLPpBWaRbCzxFAQl12jHWxmFxbZ6cNLjokxvxZSKI5IigCW-dUWU2rwUKjzDkr4kOCemgQUHB2iCrVGksI5qEC1oAzDZUykl5y81NQODW4nO1RMQu0hjtmnr1WplfPxI57bz9ttr3Dd3m8wIvLNTEvMdH_o5KjX5ogwemlIRr7OOb2PEpnOuOe5jVUZvSPJFD7xC0Rion_x3ylprNtD3wmYvBP1Vgx4nWPwMYMPJDPKNQ8JA5s76CEepAPXcELKQTNgc_kXtY63oj-WnkNJV9uGVZHBrR3Gjb-PSTnFI8ZrYrlFVlfejw36xckZmn607-k7uZLYPWHyx7ami2dfnnG3TGtCzJHVe9uqDxrMIVCqv2Ay6mqTV7K6PSq1v2MuNqaD5hxJSVhpPcrH1LF5OZTFlCljX7h8Q7V95IKW-EMm_tCOc9ovmtrFYimbE38ZQetoiG2Jw85cVihVWrmgxivOwEPMYrFNpXvB7p7LfI5E7v89JR7MTKpcBGX4V6JakQMLR1HtFcbWXr1WoktZvGTvM5LM360OnNjTNNrSy6rAx479r-MlfLbVk7Ogwi8Ko_9JUCQ</textarea
-        >
-      </div>
-      <iframe style="display: none" src="index_1.html"></iframe>
-    </div>
-    <iframe
-      name="__privateStripeMetricsController1290"
-      frameborder="0"
-      allowtransparency="true"
-      scrolling="no"
-      role="presentation"
-      allow="payment *"
-      src="index_3.html#url=https%3A%2F%2Fact.38degrees.org.uk%2Fact%2Fsuspend-johnsons-allowance&amp;title=Suspend%20Boris%20Johnson's%20taxpayer%20allowance&amp;referrer=&amp;muid=3f141674-6a7a-4822-b405-55f010bbd9fa3537be&amp;sid=NA&amp;version=6&amp;preview=false&amp;__shared_params__[version]=v3"
-      aria-hidden="true"
-      tabindex="-1"
-      style="
-        border: none !important;
-        margin: 0px !important;
-        padding: 0px !important;
-        width: 1px !important;
-        min-width: 100% !important;
-        overflow: hidden !important;
-        display: block !important;
-        visibility: hidden !important;
-        position: fixed !important;
-        height: 1px !important;
-        pointer-events: none !important;
-        user-select: none !important;
-      "
-    ></iframe>
+    >
   </body>
 </html>

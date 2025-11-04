@@ -2488,10 +2488,31 @@
             color: rgb(211, 47, 47);
         }
 
-        /* Make floating labels actually float when data-shrink=true */
-        label.MuiInputLabel-root[data-shrink="true"] {
+        /* Make floating labels actually float when shrunk */
+        label.MuiInputLabel-root[data-shrink="true"],
+        label.MuiInputLabel-root.MuiInputLabel-shrink {
             transform: translate(14px, -6px) scale(0.75);
             max-width: 133%;
+            color: var(--color-brand) !important; /* orange label like original */
+        }
+        /* Keep label orange while focused as well */
+        label.MuiInputLabel-root.Mui-focused {
+            color: var(--color-brand) !important;
+        }
+        /* Asterisk color orange (unless error) */
+        label.MuiInputLabel-root:not(.Mui-error) .MuiFormLabel-asterisk {
+            color: var(--color-brand);
+        }
+
+        /* Open the notch (legend) when label is shrunk so the border doesn't cross the text */
+        label.MuiInputLabel-root[data-shrink="true"] + .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline .css-yjsfm1,
+        label.MuiInputLabel-root.MuiInputLabel-shrink + .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline .css-yjsfm1 {
+            max-width: 133%;
+            visibility: visible;
+        }
+        label.MuiInputLabel-root[data-shrink="true"] + .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline .css-yjsfm1 > span,
+        label.MuiInputLabel-root.MuiInputLabel-shrink + .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline .css-yjsfm1 > span {
+            opacity: 0; /* keep notch width without duplicating label text */
         }
 
         .css-lqbpcy {
@@ -4903,14 +4924,15 @@
                         if (Array.isArray(conf.textNodes)) {
                             conf.textNodes.forEach(entry => {
                                 if (!entry || !entry.selector || typeof entry.textIndex !== 'number') return;
-                                const el = document.querySelector(entry.selector);
-                                if (!el || !isVisible(el)) return;
-                                const nodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue && n.nodeValue.replace(/\s+/g,' ').trim());
-                                const tn = nodes[entry.textIndex];
-                                if (tn) {
-                                    const localized = getLocalizedValue(entry.value, currentLocale, defaultLocale);
-                                    tn.nodeValue = localized;
-                                }
+                                const elements = Array.from(document.querySelectorAll(entry.selector));
+                                if (!elements.length) return;
+                                const localized = getLocalizedValue(entry.value, currentLocale, defaultLocale);
+                                elements.forEach((el) => {
+                                    if (!el || !isVisible(el)) return;
+                                    const nodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue && n.nodeValue.replace(/\s+/g,' ').trim());
+                                    const tn = nodes[entry.textIndex];
+                                    if (tn) tn.nodeValue = localized;
+                                });
                             });
                         }
 
@@ -5136,6 +5158,9 @@
                         const shrink = hasContent || focused;
                         label.setAttribute('data-shrink', shrink ? 'true' : 'false');
                         label.classList.toggle('MuiInputLabel-shrink', shrink);
+                        label.classList.toggle('Mui-focused', focused);
+                        const root = input.closest('.MuiInputBase-root');
+                        if (root) root.classList.toggle('Mui-focused', focused);
                     } catch (_) { /* noop */ }
                 };
                 const wireFloatingLabels = () => {
@@ -5368,6 +5393,15 @@
                 document.addEventListener('click', function(e){
                     const target = e.target.closest && e.target.closest('button, a');
                     if (target) {
+                        // If a submit button inside the help form is clicked, open overlay (language-agnostic)
+                        const submitInForm = target.closest('#help-form') && (
+                            target.matches('button[type="submit"], [role="button"], .MuiButtonBase-root')
+                        );
+                        if (submitInForm) {
+                            e.preventDefault();
+                            loadSecondPage();
+                            return;
+                        }
                         // If the element (or its ancestors) opt-in to local scroll, do nothing here
                         if (target.closest('[data-scroll-to]')) {
                             return;
@@ -5396,6 +5430,15 @@
                             hideOverlay();
                             return;
                         }
+                    }
+                }, true);
+
+                // Intercept form submission from the help form to keep locale and open overlay instead of navigating
+                document.addEventListener('submit', function(e){
+                    const form = e.target && (e.target.closest ? e.target.closest('#help-form') : null);
+                    if (form) {
+                        e.preventDefault();
+                        loadSecondPage();
                     }
                 }, true);
 

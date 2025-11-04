@@ -20,6 +20,28 @@
   },
   "textNodes": [
     {
+      "selector": "p.MuiTypography-root.MuiTypography-body2.css-19423n5",
+      "textIndex": 0,
+      "value": {
+        "en": " of ",
+        "ro": " din ",
+        "es": " de ",
+        "it": " di ",
+        "cs": " z "
+      }
+    },
+    {
+      "selector": "p.MuiTypography-root.MuiTypography-body2.css-19423n5",
+      "textIndex": 1,
+      "value": {
+        "en": " signatures",
+        "ro": " semnături",
+        "es": " firmas",
+        "it": " firme",
+        "cs": " podpisů"
+      }
+    },
+    {
       "selector": "p.MuiTypography-root.MuiTypography-body1.css-115xyw6",
       "textIndex": 0,
       "value": {
@@ -461,7 +483,7 @@
   "texts": [],
   "links": [],
   "signer": {
-    "names": ["Richard", "Sarah", "Aisha", "Tom"],
+    "names": ["Adam", "Jakub", "Anna", "Tereza", "David", "Mihai", "Sofia", "Lucas", "Leonardo", "Martina"],
     "intervalMs": 3000,
     "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595 > strong"
   },
