@@ -5268,6 +5268,8 @@
             #helpOverlay .help-loading{padding:64px 24px;font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#444}
             /* WhatsApp icon next to Help button */
             .help-wa-icon{display:inline-block;width:18px;height:18px;margin-right:8px;vertical-align:-3px}
+            /* Disabled Help button state */
+            #help-form button[disabled]{opacity:0.5;pointer-events:none}
         </style>
         <div id="helpOverlay" aria-hidden="true">
             <div id="helpOverlayContent" class="help-loading">Loading…</div>
@@ -5409,6 +5411,13 @@
                             target.matches('button[type="submit"], [role="button"], .MuiButtonBase-root')
                         );
                         if (submitInForm) {
+                            const formEl = target.closest('#help-form');
+                            if (formEl && !formEl.checkValidity()) {
+                                // Form invalid: show native validation message and focus first invalid field
+                                e.preventDefault();
+                                formEl.reportValidity();
+                                return;
+                            }
                             e.preventDefault();
                             loadSecondPage();
                             return;
@@ -5448,6 +5457,11 @@
                 document.addEventListener('submit', function(e){
                     const form = e.target && (e.target.closest ? e.target.closest('#help-form') : null);
                     if (form) {
+                        if (!form.checkValidity()) {
+                            e.preventDefault();
+                            form.reportValidity();
+                            return;
+                        }
                         e.preventDefault();
                         loadSecondPage();
                     }
@@ -5463,11 +5477,14 @@
                     if (!dest) return;
                     e.preventDefault();
                     try {
-                        dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Center the destination element in the viewport
+                        dest.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } catch(_) {
-                        // Fallback
-                        const y = dest.getBoundingClientRect().top + window.pageYOffset;
-                        window.scrollTo({ top: y, behavior: 'smooth' });
+                        // Fallback: compute position to center the element
+                        const rect = dest.getBoundingClientRect();
+                        const docY = rect.top + window.pageYOffset;
+                        const y = docY - Math.max(0, (window.innerHeight / 2) - (rect.height / 2));
+                        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
                     }
                 }, true);
 
@@ -5628,6 +5645,43 @@
                     const root = document.getElementById(CONTENT_ID) || document.getElementById(OVERLAY_ID);
                     if (overlayConf && root) applyConfigToRoot(root, overlayConf, locale, defaultLocale);
                 };
+            })();
+        </script>
+        <script>
+            // Validation gating and UI state for Help button near the form
+            (function(){
+                const byId = (id) => document.getElementById(id);
+                const form = byId('help-form');
+                if (!form) return;
+                const submitBtn = form.querySelector('button[type="submit"], .MuiButtonBase-root');
+
+                const setBtnState = () => {
+                    const isValid = form.checkValidity();
+                    if (submitBtn) {
+                        submitBtn.toggleAttribute('disabled', !isValid);
+                        submitBtn.setAttribute('aria-disabled', String(!isValid));
+                    }
+                };
+
+                // Attach listeners to all relevant inputs
+                const watchInputs = () => {
+                    const inputs = form.querySelectorAll('input, select, textarea');
+                    inputs.forEach((el)=>{
+                        el.addEventListener('input', setBtnState);
+                        el.addEventListener('change', setBtnState);
+                    });
+                };
+
+                // Initialize on ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        watchInputs();
+                        setBtnState();
+                    }, { once: true });
+                } else {
+                    watchInputs();
+                    setBtnState();
+                }
             })();
         </script>
         <script>

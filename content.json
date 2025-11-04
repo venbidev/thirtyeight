@@ -20,6 +20,17 @@
   },
   "textNodes": [
     {
+      "selector": "#top-help-btn",
+      "textIndex": 0,
+      "value": {
+        "en": "Help!",
+        "ro": "Ajutor!",
+        "es": "¡Ayuda!",
+        "it": "Aiuto!",
+        "cs": "Pomoc!"
+      }
+    },
+    {
       "selector": "p.MuiTypography-root.MuiTypography-body2.css-19423n5",
       "textIndex": 0,
       "value": {
