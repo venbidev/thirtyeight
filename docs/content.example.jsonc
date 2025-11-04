@@ -1,0 +1,150 @@
+// Пример конфигурации content.json с русскими комментариями (JSONC)
+// Этот файл — справочный. Реальный рантайм читает стандартный JSON без комментариев.
+// Не подменяйте им рабочий content.json, если ваш загрузчик не поддерживает JSONC.
+{
+  // Техническая информация о файле/странице
+  "meta": {
+    // Время генерации файла (ISO 8601). Полезно для отладки и кеширования.
+    "generatedAt": "2025-11-03T21:02:15.906Z",
+    // Абсолютный или относительный путь к странице, для которой собирался конфиг
+    "page": "/path/to/index.html"
+  },
+
+  // Палитра темы. Эти значения используются для CSS‑переменных и оверрайдов в theme.js
+  "colors": {
+    // Брендовый акцент/акцентные элементы
+    "brand": "#000000",
+    // Основной первичный цвет (кнопки/акценты)
+    "primary": "#1C7BBD",
+    // Цвет фона кнопки по умолчанию (если не указан — берётся primary)
+    "buttonBg": "#1C7BBD",
+    // Цвет фона кнопки при наведении
+    "buttonHoverBg": "#196EAA",
+    // Цвет ссылок по умолчанию
+    "link": "#1D1D1B",
+    // Цвет фона футера
+    "footerBg": "#1D1D1B",
+    // Цвет текста в футере
+    "footerText": "#FFFFFF",
+    // Цвет «прогресса» (заполненная часть)
+    "progress": "#FF7900",
+    // Цвет трека прогресса (фон/незаполненная часть)
+    "progressTrack": "#FFCC9E"
+  },
+
+  // Параметры петиции: числа для счётчиков/прогресс-бара
+  "petition": {
+    "signed": 23444, // текущее число подписей
+    "goal": 100000   // целевое число подписей
+  },
+
+  // Локализуемые текстовые узлы: куда и какой текст подставить по селектору
+  // ВНИМАНИЕ: селекторы с сгенерированными классами MUI (.css-xxxxx) хрупкие.
+  // Рекомендуется использовать стабильные якоря (data-* или собственные классы/id).
+  "textNodes": [
+    {
+      // CSS‑селектор элемента в DOM
+      "selector": "p.MuiTypography-root.MuiTypography-body1.css-115xyw6",
+      // Индекс текстового узла внутри элемента (если их несколько)
+      "textIndex": 0,
+      // Словарь переводов: ключ — локаль (en/ro/es/it/cs и т.д.)
+      "value": {
+        "en": "Suspend Boris Johnson's taxpayer allowance",
+        "ro": "Suspendați indemnizația plătită din taxe a lui Boris Johnson"
+      }
+    },
+    {
+      "selector": "h2 > strong",
+      "textIndex": 0,
+      "value": {
+        "en": "Petition text",
+        "es": "Texto de la petición"
+      }
+    }
+    // … Добавляйте остальные узлы по аналогии
+  ],
+
+  // Детальное описание ссылок: текст, href, target, title
+  "linksDetailed": [
+    {
+      // Где искать ссылку
+      "selector": "span.MuiTypography-root.MuiTypography-caption.css-13ok1xy > a:nth-of-type(1)",
+      // Отображаемый текст по локалям
+      "text": {
+        "en": "unsubscribe",
+        "es": "darte de baja"
+      },
+      // Целевой адрес (строка). Если нужен язык — формируйте динамически с URLSearchParams.
+      "href": "https://id.38degrees.org.uk/subscriptions/unsubscribe",
+      // Поведение окна: _blank — в новой вкладке
+      "target": "_blank",
+      // Подсказка при наведении (можно оставить пустым)
+      "title": ""
+    },
+    {
+      "selector": "a:nth-of-type(2)",
+      "text": {
+        "en": "privacy policy"
+      },
+      // ВАЖНО: не оставляйте пустым — иначе ссылка будет нерабочей
+      "href": "https://example.org/privacy",
+      "target": "_blank",
+      "title": ""
+    }
+  ],
+
+  // Дополнительные карты по селекторам (если используются иным рантаймом)
+  "textBySelector": {},
+  "htmlBySelector": {},
+  "linksBySelector": {},
+
+  // Альтернативные массивы для упрощённой привязки (опционально)
+  "texts": [],
+  "links": [],
+
+  // Настройки «карусели» имён подписантов
+  "signer": {
+    "names": ["Richard", "Sarah", "Aisha", "Tom"], // список имён для ротации
+    "intervalMs": 3000,                                 // интервал смены в мс
+    "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595 > strong" // куда подставлять
+  },
+
+  // Наложения/оверлеи после действий (например, экран «спасибо, поделитесь»)
+  "overlay": {
+    // Тексты по селекторам и локалям
+    "textBySelector": {
+      "p.MuiTypography-root.MuiTypography-body1.css-11ouci3": {
+        "en": "Thanks for adding your name! …"
+      }
+    },
+    // Параметры ссылок (шеринга) по селекторам и локалям
+    // Рекомендуется генерировать такие URL через URL/URLSearchParams для корректного экранирования
+    "linksBySelector": {
+      "a[href*=\"api.whatsapp.com/send\"]": {
+        "href": {
+          "en": "https://api.whatsapp.com/send?text=…"
+        },
+        "target": { "en": "_blank" },
+        "title": { "en": "Share on WhatsApp" }
+      }
+    }
+  },
+
+  // Локализация: настройки определения и выбора языка интерфейса
+  "localization": {
+    // Локаль по умолчанию, если не указана явно и/или не удалось определить по IP/стране
+    "defaultLocale": "en",
+    // Имя параметра в URL для ручного выбора локали (?lang=es)
+    "urlParam": "lang",
+    // Сервис для определения страны по IP (опционально; учитывайте задержки и приватность)
+    "ipLookupUrl": "https://ipapi.co/json/",
+    // Маппинг страна → локаль (ISO 3166-1 alpha-2 → BCP 47)
+    "localeByCountry": {
+      "RO": "ro",
+      "ES": "es"
+    }
+  },
+
+  // Здесь можно хранить пакетные словари переводов, если не хотите распылять по textNodes
+  "locales": {}
+}
