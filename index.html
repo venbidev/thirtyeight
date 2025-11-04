@@ -4266,6 +4266,61 @@
             opacity: .8
         }
     </style>
+    <style>
+        /* Styled radio buttons for age confirmation */
+        input[type="radio"][name="action-consent-1"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px; /* чуть крупнее */
+            height: 20px;
+            border: 2px solid #c6c6c6; /* neutral grey when unchecked */
+            border-radius: 50%;
+            display: inline-grid;
+            place-content: center;
+            margin-right: 8px; /* in case inline spacing is removed later */
+            background-color: #fff;
+            cursor: pointer;
+            vertical-align: text-bottom;
+            transition: border-color .15s ease, box-shadow .15s ease;
+            box-sizing: border-box;
+        }
+        input[type="radio"][name="action-consent-1"]::before {
+            content: "";
+            width: 10px; /* центр точка чуть больше */
+            height: 10px;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform .15s ease-in-out;
+            background: #ff7a00; /* orange dot when selected */
+        }
+        input[type="radio"][name="action-consent-1"]:checked {
+            border-color: #ff7a00; /* orange ring when checked */
+        }
+        input[type="radio"][name="action-consent-1"]:checked::before {
+            transform: scale(1);
+        }
+        input[type="radio"][name="action-consent-1"]:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.3);
+        }
+        input[type="radio"][name="action-consent-1"]:hover {
+            border-color: #999;
+        }
+
+        /* Align the left edge of radios with the title "Please confirm your age" */
+        /* The markup here is: fieldset > label (title) + div[role=radiogroup] */
+        label.MuiFormLabel-root + .MuiRadioGroup-root {
+            margin-left: -6px !important; /* shift 7px left */
+            padding-left: 0 !important;
+        }
+        /* Ensure each radio label block has no unintended left offset */
+        div[role="radiogroup"] > label.MuiFormControlLabel-root {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            display: inline-flex;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
