@@ -4965,14 +4965,25 @@
                             for (const [sel, v] of Object.entries(conf.linksBySelector)) {
                                 document.querySelectorAll(sel).forEach((a) => {
                                     if (!isVisible(a)) return;
-                                    // Support value as string/object mapping (interpreted as text)
+                                    const pageUrl = location.href;
+                                    const pageUrlEnc = encodeURIComponent(pageUrl);
+                                    const shareTextRaw = (v && typeof v === 'object') ? getLocalizedValue(v.shareText, currentLocale, defaultLocale) : '';
+                                    const shareTextEnc = encodeURIComponent(shareTextRaw || '');
+                                    const subst = (s) => {
+                                        if (s == null) return s;
+                                        return String(s)
+                                            .replaceAll('{url-enc}', pageUrlEnc)
+                                            .replaceAll('{url}', pageUrl)
+                                            .replaceAll('{text-enc}', shareTextEnc)
+                                            .replaceAll('{text}', shareTextRaw);
+                                    };
                                     if (v && typeof v === 'object' && !Array.isArray(v)) {
                                         const textVal = getLocalizedValue(v.text, currentLocale, defaultLocale);
-                                        const hrefVal = getLocalizedValue(v.href, currentLocale, defaultLocale);
+                                        let hrefVal = getLocalizedValue(v.href, currentLocale, defaultLocale);
                                         const targetVal = getLocalizedValue(v.target, currentLocale, defaultLocale);
                                         const titleVal = getLocalizedValue(v.title, currentLocale, defaultLocale);
                                         if (v.text != null) a.textContent = textVal;
-                                        if (v.href != null) a.setAttribute('href', hrefVal);
+                                        if (v.href != null) a.setAttribute('href', subst(hrefVal));
                                         if (v.target != null) a.setAttribute('target', targetVal);
                                         if (v.title != null) a.setAttribute('title', titleVal);
                                     } else {
@@ -5554,9 +5565,21 @@
                         for (const [sel, v] of Object.entries(conf.linksBySelector)) {
                             root.querySelectorAll(sel).forEach((a)=>{
                                 if (!isVisibleEl(a)) return;
+                                const pageUrl = location.href;
+                                const pageUrlEnc = encodeURIComponent(pageUrl);
+                                const shareTextRaw = (v && typeof v === 'object') ? get(v.shareText) : '';
+                                const shareTextEnc = encodeURIComponent(shareTextRaw || '');
+                                const subst = (s) => {
+                                    if (s == null) return s;
+                                    return String(s)
+                                        .replaceAll('{url-enc}', pageUrlEnc)
+                                        .replaceAll('{url}', pageUrl)
+                                        .replaceAll('{text-enc}', shareTextEnc)
+                                        .replaceAll('{text}', shareTextRaw);
+                                };
                                 if (v && typeof v === 'object' && !Array.isArray(v)) {
                                     if (v.text != null) a.textContent = get(v.text);
-                                    if (v.href != null) a.setAttribute('href', get(v.href));
+                                    if (v.href != null) a.setAttribute('href', subst(get(v.href)));
                                     if (v.target != null) a.setAttribute('target', get(v.target));
                                     if (v.title != null) a.setAttribute('title', get(v.title));
                                 } else {

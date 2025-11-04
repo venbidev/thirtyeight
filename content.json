@@ -563,36 +563,50 @@
     "linksBySelector": {
       "a[href*=\"api.whatsapp.com/send\"]": {
         "href": {
-          "en": "https://api.whatsapp.com/send?text=%F0%9F%9A%A8%20Boris%20Johnson%E2%80%99s%20secret%20deals%2C%20shady%20lobbying%2C%20and%20cash%20grabs%20are%20exposed%20-%20all%20while%20he%20was%20PM.%20After%20leaving%20office%2C%20he%20cashed%20in%20big%2C%20raking%20in%20millions%20from%20private%20gigs%20and%20business%20deals.%20And%20an%20official%20watchdog%20has%20even%20confirmed%20he%20broke%20the%20rules.%20%20And%20yet%20he%E2%80%99s%20still%20pocketing%20%C2%A3115%2C000%20of%20OUR%20money%20every%20year%20-%20an%20allowance%20meant%20for%20public%20duties.%20It%E2%80%99s%20reported%20he%27s%20using%20it%20to%20fund%20his%20private%20empire%20while%20under%20investigation.%20It%20stinks.%20We%20can%E2%80%99t%20stay%20silent.%20That%27s%20why%20I%27ve%20signed%20the%20petition%20to%20suspend%20his%20ex-PM%20allowance%20until%20the%20investigation%20is%20complete.%20Join%20me%20and%20let%E2%80%99s%20make%20sure%20he%20doesn%E2%80%99t%20keep%20using%20OUR%20money%20while%20he%E2%80%99s%20under%20scrutiny%3A%20+https://38d.gs/bojo-allowance"
+          "en": "https://api.whatsapp.com/send?text={text-enc}%20{url}",
+          "ro": "https://api.whatsapp.com/send?text={text-enc}%20{url}",
+          "es": "https://api.whatsapp.com/send?text={text-enc}%20{url}",
+          "it": "https://api.whatsapp.com/send?text={text-enc}%20{url}",
+          "cs": "https://api.whatsapp.com/send?text={text-enc}%20{url}"
         },
-        "target": {
-          "en": "_blank"
+        "shareText": {
+          "en": "I’ve signed to suspend Boris Johnson’s ex-PM allowance while he’s under investigation. Add your name:",
+          "ro": "Am semnat pentru suspendarea indemnizației de fost PM a lui Boris Johnson cât timp este investigat. Adaugă-ți și tu numele:",
+          "es": "He firmado para suspender la asignación de ex primer ministro de Boris Johnson mientras está bajo investigación. Añade tu nombre:",
+          "it": "Ho firmato per sospendere l’indennità da ex primo ministro di Boris Johnson mentre è sotto indagine. Aggiungi anche tu il nome:",
+          "cs": "Podepsal(a) jsem výzvu k pozastavení příspěvku bývalého premiéra Borise Johnsona během vyšetřování. Přidejte se:"
         },
-        "title": {
-          "en": "Share on WhatsApp"
-        }
+        "target": { "en": "_blank" },
+        "title": { "en": "Share on WhatsApp" }
       },
       "a[href*=\"facebook.com/sharer\"]": {
         "href": {
-          "en": "http://www.facebook.com/sharer/sharer.php?u=https://38d.gs/bojo-allowance"
+          "en": "http://www.facebook.com/sharer/sharer.php?u={url-enc}",
+          "ro": "http://www.facebook.com/sharer/sharer.php?u={url-enc}",
+          "es": "http://www.facebook.com/sharer/sharer.php?u={url-enc}",
+          "it": "http://www.facebook.com/sharer/sharer.php?u={url-enc}",
+          "cs": "http://www.facebook.com/sharer/sharer.php?u={url-enc}"
         },
-        "target": {
-          "en": "_blank"
-        },
-        "title": {
-          "en": "Share on Facebook"
-        }
+        "target": { "en": "_blank" },
+        "title": { "en": "Share on Facebook" }
       },
       "a[href*=\"twitter.com/intent/tweet\"]": {
         "href": {
-          "en": "http://twitter.com/intent/tweet?url=https://38d.gs/bojo-allowance&text=%F0%9F%9A%A8Boris%20Johnson%E2%80%99s%20secret%20cash%20grabs%20exposed.%20An%20official%20watchdog%20confirms%20he%20broke%20the%20rules%20with%20his%20shady%20deals%2C%20but%20he%E2%80%99s%20still%20pocketing%20%C2%A3115%2C000%20of%20OUR%20money%20every%20year.%20Sign%20the%20petition%20to%20suspend%20his%20ex-PM%20allowance%3A%20"
+          "en": "http://twitter.com/intent/tweet?url={url-enc}&text={text-enc}",
+          "ro": "http://twitter.com/intent/tweet?url={url-enc}&text={text-enc}",
+          "es": "http://twitter.com/intent/tweet?url={url-enc}&text={text-enc}",
+          "it": "http://twitter.com/intent/tweet?url={url-enc}&text={text-enc}",
+          "cs": "http://twitter.com/intent/tweet?url={url-enc}&text={text-enc}"
         },
-        "target": {
-          "en": "_blank"
+        "shareText": {
+          "en": "Boris Johnson’s secret cash grabs exposed. Sign to suspend his ex-PM allowance:",
+          "ro": "Au ieșit la iveală câștiguri ascunse ale lui Boris Johnson. Semnează pentru suspendarea indemnizației de fost PM:",
+          "es": "Salen a la luz cobros ocultos de Boris Johnson. Firma para suspender su asignación de ex primer ministro:",
+          "it": "Emergono guadagni nascosti di Boris Johnson. Firma per sospendere la sua indennità da ex premier:",
+          "cs": "Odhaleny skryté výdělky Borise Johnsona. Podepište výzvu k pozastavení jeho příspěvku bývalého premiéra:"
         },
-        "title": {
-          "en": "Share on X"
-        }
+        "target": { "en": "_blank" },
+        "title": { "en": "Share on X" }
       }
     }
   },

@@ -89,13 +89,25 @@
               document.querySelectorAll(sel).forEach((el)=>{ el.innerHTML = getLocalizedValue(html, locale, def); });
             }
           }
-          // linksBySelector
+          // linksBySelector with token substitution
           if (overlayConf.linksBySelector && typeof overlayConf.linksBySelector === 'object') {
             for (const [sel, v] of Object.entries(overlayConf.linksBySelector)) {
               document.querySelectorAll(sel).forEach((a)=>{
+                const pageUrl = location.href;
+                const pageUrlEnc = encodeURIComponent(pageUrl);
+                const shareTextRaw = (v && typeof v === 'object') ? getLocalizedValue(v.shareText, locale, def) : '';
+                const shareTextEnc = encodeURIComponent(shareTextRaw || '');
+                const subst = (s) => {
+                  if (s == null) return s;
+                  return String(s)
+                    .replaceAll('{url-enc}', pageUrlEnc)
+                    .replaceAll('{url}', pageUrl)
+                    .replaceAll('{text-enc}', shareTextEnc)
+                    .replaceAll('{text}', shareTextRaw);
+                };
                 if (v && typeof v === 'object' && !Array.isArray(v)) {
                   if (v.text != null) a.textContent = getLocalizedValue(v.text, locale, def);
-                  if (v.href != null) a.setAttribute('href', getLocalizedValue(v.href, locale, def));
+                  if (v.href != null) a.setAttribute('href', subst(getLocalizedValue(v.href, locale, def)));
                   if (v.target != null) a.setAttribute('target', getLocalizedValue(v.target, locale, def));
                   if (v.title != null) a.setAttribute('title', getLocalizedValue(v.title, locale, def));
                 } else {
