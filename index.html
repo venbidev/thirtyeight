@@ -37,7 +37,7 @@
     <style>
         :root {
             /* Adjust this to change the logical offset from the inline start (left in LTR) */
-            --footer-offset-inline-start: 3rem;
+            --footer-offset-inline-start: 30px;
 
             /* Theme colors (can be overridden via content.json -> colors) */
             --color-text: #1D1D1B; /* near rgb(29,29,27) */
@@ -96,7 +96,15 @@
             background-color: var(--color-progress) !important;
         }
 
-        /* Desktop-only: make footer content stick to the left with a logical offset */
+        /* Footer layout: logo above text and shifted right by the configured offset */
+        footer.MuiBox-root.css-1lfq37a .MuiGrid-container.css-khvab5 {
+            justify-content: flex-start !important;
+            padding-inline-start: max(var(--footer-offset-inline-start), env(safe-area-inset-left));
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Desktop-only: ensure consistent behavior and spacing tweaks */
         @media (min-width: 900px) {
             footer.MuiBox-root.css-1lfq37a .MuiGrid-container.css-khvab5 {
                 justify-content: flex-start !important;
@@ -166,11 +174,24 @@
         b {
             font-weight: 700;
         }
+    /* Ensure each radio label block has no unintended left offset */
+    div[role="radiogroup"] > label.MuiFormControlLabel-root { margin-inline-start: 0 !important; }
 
         body {
             margin: 0px;
             color: rgba(0, 0, 0, 0.87);
             font-family: Satoshi, Helvetica, Arial, sans-serif;
+        /* Make all control label rows occupy full width and be clickable (checkbox + radio) */
+        .MuiFormGroup-root label.MuiFormControlLabel-root {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            width: fit-content;
+        }
+        .MuiFormGroup-root label.MuiFormControlLabel-root .MuiTypography-root {
+            cursor: pointer;
+        }
             font-weight: 400;
             font-size: 1rem;
             line-height: 1.75rem;
@@ -4306,11 +4327,16 @@
         input[type="radio"][name="action-consent-1"]:hover {
             border-color: #999;
         }
+        /* Pressed shadow: circular ripple-like halo when pressing */
+        input[type="radio"][name="action-consent-1"]:active,
+        input[type="radio"][name="action-consent-1"].is-pressed {
+            box-shadow: 0 0 0 6px rgba(255, 122, 0, 0.18);
+        }
 
         /* Align the left edge of radios with the title "Please confirm your age" */
         /* The markup here is: fieldset > label (title) + div[role=radiogroup] */
         label.MuiFormLabel-root + .MuiRadioGroup-root {
-            margin-left: -6px !important; /* shift 7px left */
+            margin-left: -6px !important; /* moved 6px to the right from previous */
             padding-left: 0 !important;
         }
         /* Ensure each radio label block has no unintended left offset */
@@ -4319,6 +4345,57 @@
             padding-left: 0 !important;
             display: inline-flex;
             align-items: center;
+        }
+        /* Make checkbox rows fully clickable (e.g., "Don't display name publicly") */
+        .MuiFormGroup-root label.MuiFormControlLabel-root,
+        .MuiFormGroup-root label.MuiFormControlLabel-root .MuiTypography-root {
+            cursor: pointer;
+        }
+
+        /* Custom checkbox: "Don't display name publicly" */
+        .custom-checkbox-input {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c6c6c6;
+            border-radius: 3px;
+            background-color: #fff;
+            display: inline-grid;
+            place-content: center;
+            margin-right: 8px;
+            cursor: pointer;
+            vertical-align: text-bottom;
+            transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+            box-sizing: border-box;
+        }
+        .custom-checkbox-input:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.25);
+        }
+        .custom-checkbox-input:hover {
+            border-color: #999;
+        }
+        /* checkmark */
+        .custom-checkbox-input::after {
+            content: "";
+            width: 6px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg) scale(0);
+            transition: transform .12s ease-in-out;
+        }
+        .custom-checkbox-input:checked {
+            background-color: #ff7a00;
+            border-color: #ff7a00;
+        }
+        .custom-checkbox-input:checked::after {
+            transform: rotate(45deg) scale(1);
+        }
+        /* Shift the "Don't display name publicly" checkbox row 6px to the right */
+        label[for="display-name-privacy"] {
+            margin-left: -4px;
         }
     </style>
 </head>
@@ -4365,7 +4442,7 @@
                             <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-md-7 css-122uxd2">
                                 <div class="MuiStack-root css-1orv6po"><img src="media/Copy_of_CEO_bonus_tricks_petition_image_(1).png" alt="A portrait photo of Boris Johnson" class="MuiBox-root css-8atqhb">
                                     <div class="MuiStack-root css-lsq302">
-                                        <p class="MuiTypography-root MuiTypography-body2 css-19423n5"><span id="petition-sig-count" class="MuiBox-root css-1vg6q84">98&nbsp;206</span> of <span class="MuiBox-root css-1vg6q84">200&nbsp;000</span> signatures</p><span role="progressbar" aria-valuenow="98206" aria-valuemin="0" aria-valuemax="200000" aria-label="Petition signatures" class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-1kk8uyv"><span class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1gheyb9" style="transform: translateX(-50.897%);"></span></span><button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1auh17d">Help!<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-19423n5"><span id="petition-sig-count" class="MuiBox-root css-1vg6q84">0</span> of <span id="petition-sig-goal" class="MuiBox-root css-1vg6q84">200&nbsp;000</span> signatures</p><span role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="200000" aria-label="Petition signatures" class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-1kk8uyv"><span class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1gheyb9" style="transform: translateX(-50.897%);"></span></span><button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1auh17d"><img src="media/whatsapp.svg" alt="" aria-hidden="true" class="help-wa-icon"> Help!<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
                                     </div>
                                     <h6 class="MuiTypography-root MuiTypography-h6 css-g4u4sr">To: The Prime Minister, Keir Starmer and The Cabinet Office</h6>
                                     <div class="MuiBox-root css-10jmj18">
@@ -4391,11 +4468,11 @@
                                 </div>
                             </div>
                             <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-md-3 css-54tsqc">
-                                <div class="MuiContainer-root MuiContainer-maxWidthLg css-1scbxtk"><span role="progressbar" aria-valuenow="98206" aria-valuemin="0" aria-valuemax="200000" aria-label="Petition signatures" class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-1kk8uyv"><span class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1gheyb9" style="transform: translateX(-50.897%);"></span></span>
+                                <div class="MuiContainer-root MuiContainer-maxWidthLg css-1scbxtk"><span role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="200000" aria-label="Petition signatures" class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-1kk8uyv"><span class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1gheyb9" style="transform: translateX(-50.897%);"></span></span>
                                     <div class="MuiStack-root css-dnexhu">
                                         <div class="MuiBox-root css-fmxvnb">
-                                            <h4 class="MuiTypography-root MuiTypography-h4 css-1zbqr0">98&nbsp;206</h4>
-                                            <p class="MuiTypography-root MuiTypography-body2 css-19423n5">of 200&nbsp;000 signatures</p>
+                                            <h4 id="petition-sig-count-2" class="MuiTypography-root MuiTypography-h4 css-1zbqr0">0</h4>
+                                            <p class="MuiTypography-root MuiTypography-body2 css-19423n5">of <span id="petition-sig-goal-2">200&nbsp;000</span> signatures</p>
                                         </div>
                                         <div>
                                             <div class="MuiStack-root css-1p2vcji">
@@ -4424,9 +4501,12 @@
                                               </div>
                                             </div>
                                             
-                                            <div class="MuiFormGroup-root css-1h7anqn"><label class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1ldmwkf"><span class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium css-1xg8av8"><input type="checkbox" data-indeterminate="false" class="PrivateSwitchBase-input css-1m9pwf3"><svg focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckBoxOutlineBlankIcon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv">
-                                                            <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
-                                                        </svg><span class="MuiTouchRipple-root css-w0pj6f"></span></span><span class="MuiTypography-root MuiTypography-caption css-e2i163">Don't display name publicly</span></label></div>
+                                            <div class="MuiFormGroup-root css-1h7anqn">
+                                                <label for="display-name-privacy" class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1ldmwkf custom-control">
+                                                    <input id="display-name-privacy" type="checkbox" class="custom-checkbox-input">
+                                                    <span class="MuiTypography-root MuiTypography-caption css-e2i163">Don't display name publicly</span>
+                                                </label>
+                                            </div>
                                             <hr class="MuiDivider-root MuiDivider-fullWidth css-1esihev">
                                           
                                             <div class="MuiBox-root css-gx0lhm">
@@ -4445,7 +4525,7 @@
                                                     </div>
                                                 </fieldset>
                                             </div>
-                                            <hr class="MuiDivider-root MuiDivider-fullWidth css-190s2c"><button tabindex="0" type="submit" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1auh17d">Help!<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
+                                            <hr class="MuiDivider-root MuiDivider-fullWidth css-190s2c"><button tabindex="0" type="submit" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1auh17d"><img src="media/whatsapp.svg" alt="" aria-hidden="true" class="help-wa-icon"> Help!<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
                                         </div>
                                     </form>
                                 </div>
@@ -4731,25 +4811,89 @@
                     }
                 };
 
+                // Format number with non-breaking spaces as thousand separators
+                const formatNbsp = (num) => {
+                    try {
+                        const s = String(Math.floor(Number(num) || 0));
+                        return s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0');
+                    } catch (_) {
+                        return String(num);
+                    }
+                };
+
+                const parseIntSafe = (v) => {
+                    const n = parseInt(String(v ?? '').replace(/[^\d]/g, ''), 10);
+                    return Number.isFinite(n) ? n : null;
+                };
+
+                const applyPetitionCounters = (conf) => {
+                    try {
+                        const params = new URLSearchParams(location.search);
+                        const defaults = (conf && conf.petition) || {};
+                        const goalParam = params.get('goal') || params.get('target');
+                        const signedParam = params.get('signed') || params.get('sig') || params.get('count');
+                        const progressParam = params.get('progress'); // 0..100
+
+                        let goal = parseIntSafe(goalParam);
+                        if (goal == null) goal = parseIntSafe(defaults.goal);
+                        if (goal == null) goal = parseIntSafe(document.getElementById('petition-sig-goal')?.textContent);
+
+                        let signed = parseIntSafe(signedParam);
+                        if (signed == null) signed = parseIntSafe(defaults.signed);
+                        if (signed == null) signed = parseIntSafe(document.getElementById('petition-sig-count')?.textContent);
+
+                        const prog = progressParam != null ? Math.max(0, Math.min(100, Number(progressParam))) : null;
+                        if (prog != null && (signed == null || (goal && isFinite(goal)))) {
+                            // If progress is given, compute signed from goal unless signed explicitly provided
+                            if (goal && goal > 0) signed = Math.round(goal * (prog / 100));
+                        }
+
+                        if (goal == null && signed == null) return; // nothing to do
+
+                        // Fallbacks
+                        if (goal == null) goal = 0;
+                        if (signed == null) signed = 0;
+
+                        // Update counts in both locations (if present)
+                        const countEls = [
+                            document.getElementById('petition-sig-count'),
+                            document.getElementById('petition-sig-count-2')
+                        ].filter(Boolean);
+                        countEls.forEach(el => { el.textContent = formatNbsp(signed); });
+
+                        const goalEls = [
+                            document.getElementById('petition-sig-goal'),
+                            document.getElementById('petition-sig-goal-2')
+                        ].filter(Boolean);
+                        goalEls.forEach(el => { el.textContent = formatNbsp(goal); });
+
+                        // Update progress bars (both instances) if any
+                        const roots = Array.from(document.querySelectorAll('span[role="progressbar"][aria-label="Petition signatures"]'));
+                        const pct = goal > 0 ? Math.max(0, Math.min(100, (signed / goal) * 100)) : 0;
+                        const translate = 100 - pct; // MUI determinate uses negative translateX of the remaining percent
+                        roots.forEach(root => {
+                            try {
+                                root.setAttribute('aria-valuenow', String(signed));
+                                root.setAttribute('aria-valuemax', String(goal));
+                                const bar = root.querySelector('.MuiLinearProgress-bar') || root.querySelector('span');
+                                if (bar) bar.style.transform = `translateX(-${translate.toFixed(3)}%)`;
+                            } catch (_) { /* noop */ }
+                        });
+                    } catch (e) {
+                        // ignore
+                    }
+                };
+
                 const applyConfig = async () => {
                     try {
                         const resp = await fetch(`content.json?ts=${Date.now()}` , { cache: 'no-store' });
                         if (!resp.ok) return;
                         const baseConf = await resp.json();
 
-                        // Determine locale and build effective config
-                        let conf = baseConf;
-                        let currentLocale = 'en';
-                        let defaultLocale = (baseConf && baseConf.localization && baseConf.localization.defaultLocale) || 'en';
-                        if (baseConf && baseConf.locales && typeof baseConf.locales === 'object') {
-                            const locale = await resolveLocale(baseConf);
-                            currentLocale = String(locale || 'en').toLowerCase();
-                            const overrides = baseConf.locales[locale] || {};
-                            conf = mergeContent(baseConf, overrides);
-                        } else {
-                            // Even without locales, still compute currentLocale for inline localized values
-                            currentLocale = String((await resolveLocale(baseConf)) || 'en').toLowerCase();
-                        }
+                        // Determine locale; do not use a separate locales override structure
+                        const currentLocale = String((await resolveLocale(baseConf)) || 'en').toLowerCase();
+                        const defaultLocale = (baseConf && baseConf.localization && baseConf.localization.defaultLocale) || 'en';
+                        const conf = baseConf;
 
                         // -1) Theme colors
                         if (conf && conf.colors) applyColors(conf.colors);
@@ -4856,6 +5000,9 @@
 
                         // 7) Rotate signer names if provided
                         setupSignerRotation(conf);
+
+                        // 8) Apply petition counters and progress from config/URL
+                        applyPetitionCounters(conf);
                     } catch (e) {
                         console.warn('content.json not applied:', e);
                     }
@@ -4907,6 +5054,44 @@
                 const ensureRadioLabelClicks = () => {
                     if (__labelDelegationWired) return;
                     try {
+                        // Add press visual for radios when interacting with label
+                        const setPressHandlers = () => {
+                            document.addEventListener('mousedown', (e) => {
+                                const label = e.target && (e.target.closest ? e.target.closest('label.MuiFormControlLabel-root') : null);
+                                if (!label) return;
+                                const input = label.querySelector('input[type="radio"]');
+                                if (!input) return;
+                                input.classList.add('is-pressed');
+                            }, true);
+                            ['mouseup','mouseleave'].forEach((evt) => {
+                                document.addEventListener(evt, (e) => {
+                                    const label = e.target && (e.target.closest ? e.target.closest('label.MuiFormControlLabel-root') : null);
+                                    if (!label) return;
+                                    const input = label.querySelector('input[type="radio"]');
+                                    if (!input) return;
+                                    input.classList.remove('is-pressed');
+                                }, true);
+                            });
+                            document.addEventListener('keydown', (e) => {
+                                const key = e.key || e.code;
+                                if (!(key === ' ' || key === 'Spacebar' || key === 'Enter')) return;
+                                const label = e.target && (e.target.closest ? e.target.closest('label.MuiFormControlLabel-root') : null);
+                                if (!label) return;
+                                const input = label.querySelector('input[type="radio"]');
+                                if (!input) return;
+                                input.classList.add('is-pressed');
+                            }, true);
+                            document.addEventListener('keyup', (e) => {
+                                const key = e.key || e.code;
+                                if (!(key === ' ' || key === 'Spacebar' || key === 'Enter')) return;
+                                const label = e.target && (e.target.closest ? e.target.closest('label.MuiFormControlLabel-root') : null);
+                                if (!label) return;
+                                const input = label.querySelector('input[type="radio"]');
+                                if (!input) return;
+                                input.classList.remove('is-pressed');
+                            }, true);
+                        };
+                        setPressHandlers();
                         document.addEventListener('click', (e) => {
                             const el = e.target;
                             // Walk up to a label if any
@@ -4920,6 +5105,18 @@
                             const iconButton = el.closest && el.closest('.MuiButtonBase-root');
                             if (iconButton && iconButton.contains(input)) return;
                             // Delegate click to the input to ensure toggling
+                            input.click();
+                        }, true);
+                        // Also toggle on keyboard: Space/Enter when focus is inside the label row
+                        document.addEventListener('keydown', (e) => {
+                            const key = e.key || e.code;
+                            if (!(key === ' ' || key === 'Spacebar' || key === 'Enter')) return;
+                            const el = e.target;
+                            const label = el && (el.closest ? el.closest('label.MuiFormControlLabel-root') : null);
+                            if (!label) return;
+                            const input = label.querySelector('input[type="radio"], input[type="checkbox"]');
+                            if (!input || input.disabled) return;
+                            e.preventDefault();
                             input.click();
                         }, true);
                         __labelDelegationWired = true;
@@ -5023,6 +5220,348 @@
                     document.addEventListener('DOMContentLoaded', run, { once: true });
                 } else {
                     run();
+                }
+            })();
+        </script>
+        
+        <!-- Help Overlay: loads the second page and covers current page -->
+        <style>
+            #helpOverlay{position:fixed;inset:0;z-index:2147483000;background:#ff7900;display:none;overflow:auto}
+            #helpOverlay.open{display:block}
+            #helpOverlay .help-loading{padding:64px 24px;font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#444}
+            /* WhatsApp icon next to Help button */
+            .help-wa-icon{display:inline-block;width:18px;height:18px;margin-right:8px;vertical-align:-3px}
+        </style>
+        <div id="helpOverlay" aria-hidden="true">
+            <div id="helpOverlayContent" class="help-loading">Loading…</div>
+        </div>
+        <script>
+            (function(){
+                const OVERLAY_ID = 'helpOverlay';
+                const CONTENT_ID = 'helpOverlayContent';
+                const SRC_PREFIX = '20251103214220915/';
+
+                const isExternal = (u) => /^(?:[a-z]+:)?\/\//i.test(u) || /^(data:|mailto:|tel:)/i.test(u);
+                const prefixUrl = (u) => {
+                    if (!u) return u;
+                    const s = String(u).trim();
+                    if (!s || isExternal(s) || s.startsWith('/')) return s; // already absolute/external
+                    return SRC_PREFIX + s.replace(/^\.\//,'');
+                };
+
+                const showOverlay = () => {
+                    const ov = document.getElementById(OVERLAY_ID);
+                    if (ov) ov.classList.add('open');
+                    document.documentElement.style.overflow = 'hidden';
+                };
+                const hideOverlay = () => {
+                    const ov = document.getElementById(OVERLAY_ID);
+                    if (ov) ov.classList.remove('open');
+                    document.documentElement.style.overflow = '';
+                    // remove injected styles
+                    document.querySelectorAll('style[data-help-overlay],link[rel="stylesheet"][data-help-overlay]')
+                        .forEach(n => n.remove());
+                };
+
+                const copyCurrentUrl = async () => {
+                    try {
+                        const url = String(location.href);
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            await navigator.clipboard.writeText(url);
+                            return true;
+                        }
+                        // Fallback using a temporary input
+                        const tmp = document.createElement('input');
+                        tmp.value = url;
+                        document.body.appendChild(tmp);
+                        tmp.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(tmp);
+                        return true;
+                    } catch (_) {
+                        return false;
+                    }
+                };
+
+                async function loadSecondPage(){
+                    const content = document.getElementById(CONTENT_ID);
+                    if (!content) return;
+                    showOverlay();
+                    content.classList.add('help-loading');
+                    content.textContent = 'Loading…';
+                    try {
+                        const resp = await fetch(SRC_PREFIX + 'index.html', { cache: 'no-store' });
+                        if (!resp.ok) throw new Error('Failed to load second page');
+                        const html = await resp.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+
+                        // Remove header buttons/links from the loaded page
+                        const removeSelectors = [
+                            '.css-f00iec',              // desktop nav links container
+                            'a.css-xdxih8',             // "Start A Petition" button
+                            'header .MuiIconButton-root'// mobile hamburger button
+                        ];
+                        removeSelectors.forEach(sel => {
+                            doc.querySelectorAll(sel).forEach(n => n.remove());
+                        });
+                        // Remove all footer links in the loaded page, but keep the logo (make it non-clickable)
+                        doc.querySelectorAll('footer a').forEach(a => {
+                            const hasLogo = !!a.querySelector('[title="38 Degrees Logo"]');
+                            if (hasLogo) {
+                                const span = doc.createElement('span');
+                                if (a.getAttribute('title')) span.setAttribute('title', a.getAttribute('title'));
+                                span.className = a.className || '';
+                                span.innerHTML = a.innerHTML; // preserve SVG/logo
+                                a.replaceWith(span);
+                            } else {
+                                a.remove();
+                            }
+                        });
+
+                        // Inject styles into head so they apply correctly
+                        const headNodes = Array.from(doc.head.querySelectorAll('style,link[rel="stylesheet"]'));
+                        headNodes.forEach(node => {
+                            const clone = node.cloneNode(true);
+                            if (clone.tagName === 'LINK') {
+                                const href = clone.getAttribute('href');
+                                if (href) clone.setAttribute('href', prefixUrl(href));
+                            }
+                            clone.setAttribute('data-help-overlay','');
+                            document.head.appendChild(clone);
+                        });
+
+                        // Fix relative resources inside body
+                        doc.body.querySelectorAll('[src],[href],[poster]').forEach(el => {
+                            ['src','href','poster'].forEach(attr => {
+                                if (el.hasAttribute(attr)) {
+                                    const v = el.getAttribute(attr);
+                                    if (v) el.setAttribute(attr, prefixUrl(v));
+                                }
+                            });
+                        });
+
+                        // Replace content
+                        content.classList.remove('help-loading');
+                        content.innerHTML = '';
+                        while (doc.body.firstChild) content.appendChild(doc.body.firstChild);
+
+                        // Update "Copy link" field to current page URL
+                        try {
+                            const copyInput = content.querySelector('#outlined-read-only-input');
+                            if (copyInput) copyInput.value = location.href;
+                            const copyBtn = content.querySelector('button.css-qpugri');
+                            if (copyBtn) copyBtn.setAttribute('data-overlay-copy','1');
+                        } catch(_) { /* noop */ }
+
+                        // Apply overlay-specific configuration from content.json (if provided)
+                        try {
+                            await applyOverlayConfig();
+                        } catch(_) { /* noop */ }
+                    } catch (e) {
+                        content.textContent = 'Failed to load. Please try again later.';
+                    }
+                }
+
+                // Delegated click: open when any button/link with text "Help!" is clicked
+                document.addEventListener('click', function(e){
+                    const target = e.target.closest && e.target.closest('button, a');
+                    if (target) {
+                        const text = (target.textContent || '').trim().toLowerCase();
+                        // Open overlay on "Help!"
+                        if (text === 'help!') {
+                            e.preventDefault();
+                            loadSecondPage();
+                            return;
+                        }
+                        // Copy current URL when clicking the copy button inside overlay
+                        const overlayEl = document.getElementById(OVERLAY_ID);
+                        const isInsideOverlay = overlayEl && overlayEl.contains(target);
+                        const isCopyBtn = target.closest && target.closest('[data-overlay-copy]');
+                        if (isInsideOverlay && (isCopyBtn || text === 'copy')) {
+                            e.preventDefault();
+                            copyCurrentUrl();
+                            return;
+                        }
+
+                        // Close overlay and return to main page on "Skip this step"
+                        const isSkip = text.includes('skip this step') || target.classList.contains('css-1a3jz6');
+                        if (isInsideOverlay && isSkip) {
+                            e.preventDefault();
+                            hideOverlay();
+                            return;
+                        }
+                    }
+                }, true);
+
+                // ---------- Overlay config application (content.json -> overlay) ----------
+                const isVisibleEl = (el) => {
+                    if (!el) return false;
+                    const style = getComputedStyle(el);
+                    if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;
+                    const rect = el.getBoundingClientRect();
+                    return rect.width > 0 && rect.height > 0;
+                };
+                const getVisibleTextNodesWithin = (root) => {
+                    const out = [];
+                    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                        acceptNode: (node) => {
+                            const parent = node.parentElement;
+                            if (!parent) return NodeFilter.FILTER_REJECT;
+                            if ([ 'SCRIPT','STYLE','NOSCRIPT','TITLE','META','LINK','IFRAME' ].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                            const text = node.nodeValue.replace(/\s+/g, ' ').trim();
+                            if (!text) return NodeFilter.FILTER_REJECT;
+                            if (!isVisibleEl(parent)) return NodeFilter.FILTER_REJECT;
+                            return NodeFilter.FILTER_ACCEPT;
+                        }
+                    });
+                    let n; while ((n = walker.nextNode())) out.push(n);
+                    return out;
+                };
+                const getLocalizedValueOverlay = (value, locale, def = 'en') => {
+                    if (value == null) return '';
+                    if (typeof value !== 'object' || Array.isArray(value)) return String(value);
+                    const lc = String(locale||'').toLowerCase();
+                    const dl = String(def||'en').toLowerCase();
+                    if (value[lc] != null) return String(value[lc]);
+                    if (lc === 'cs' && value['cz'] != null) return String(value['cz']);
+                    if (lc === 'cz' && value['cs'] != null) return String(value['cs']);
+                    if (value[dl] != null) return String(value[dl]);
+                    if (dl === 'cs' && value['cz'] != null) return String(value['cz']);
+                    if (dl === 'cz' && value['cs'] != null) return String(value['cs']);
+                    if (value['en'] != null) return String(value['en']);
+                    for (const k of Object.keys(value)) {
+                        if (value[k] != null && typeof value[k] !== 'object') return String(value[k]);
+                    }
+                    return '';
+                };
+                const mergeOverlayConf = (base, override) => {
+                    if (!override || typeof override !== 'object') return { ...base };
+                    const result = { ...base };
+                    const keys = ['colors','textNodes','textBySelector','htmlBySelector','linksBySelector','linksDetailed','texts','links','signer'];
+                    keys.forEach((k)=>{
+                        if (!(k in override)) return;
+                        const v = override[k];
+                        if (Array.isArray(v)) result[k] = v.slice();
+                        else if (v && typeof v === 'object') result[k] = { ...(base[k]||{}), ...v };
+                        else result[k] = v;
+                    });
+                    return result;
+                };
+                const resolveLocaleOverlay = (conf) => {
+                    const params = new URLSearchParams(location.search);
+                    const urlParam = (conf && conf.localization && conf.localization.urlParam) || 'lang';
+                    const qp = params.get(urlParam) || params.get('locale');
+                    const def = (conf && conf.localization && conf.localization.defaultLocale) || 'en';
+                    return (qp || def).toLowerCase();
+                };
+                const applyConfigToRoot = (root, conf, locale, defLocale) => {
+                    if (!root || !conf) return;
+                    const get = (v) => getLocalizedValueOverlay(v, locale, defLocale);
+                    // textNodes precise
+                    if (Array.isArray(conf.textNodes)) {
+                        conf.textNodes.forEach(entry => {
+                            if (!entry || !entry.selector || typeof entry.textIndex !== 'number') return;
+                            const el = root.querySelector(entry.selector);
+                            if (!el || !isVisibleEl(el)) return;
+                            const nodes = Array.from(el.childNodes).filter(n => n.nodeType === 3 && n.nodeValue && n.nodeValue.replace(/\s+/g,' ').trim());
+                            const tn = nodes[entry.textIndex];
+                            if (tn) tn.nodeValue = get(entry.value);
+                        });
+                    }
+                    // textBySelector
+                    if (conf.textBySelector && typeof conf.textBySelector === 'object') {
+                        for (const [sel, text] of Object.entries(conf.textBySelector)) {
+                            if (text == null) continue;
+                            root.querySelectorAll(sel).forEach((el)=>{ if (isVisibleEl(el)) el.textContent = get(text); });
+                        }
+                    }
+                    // htmlBySelector
+                    if (conf.htmlBySelector && typeof conf.htmlBySelector === 'object') {
+                        for (const [sel, html] of Object.entries(conf.htmlBySelector)) {
+                            if (html == null) continue;
+                            root.querySelectorAll(sel).forEach((el)=>{ if (isVisibleEl(el)) el.innerHTML = get(html); });
+                        }
+                    }
+                    // linksBySelector
+                    if (conf.linksBySelector && typeof conf.linksBySelector === 'object') {
+                        for (const [sel, v] of Object.entries(conf.linksBySelector)) {
+                            root.querySelectorAll(sel).forEach((a)=>{
+                                if (!isVisibleEl(a)) return;
+                                if (v && typeof v === 'object' && !Array.isArray(v)) {
+                                    if (v.text != null) a.textContent = get(v.text);
+                                    if (v.href != null) a.setAttribute('href', get(v.href));
+                                    if (v.target != null) a.setAttribute('target', get(v.target));
+                                    if (v.title != null) a.setAttribute('title', get(v.title));
+                                } else {
+                                    const t = get(v); if (t) a.textContent = t;
+                                }
+                            });
+                        }
+                    }
+                    // linksDetailed
+                    if (Array.isArray(conf.linksDetailed)) {
+                        conf.linksDetailed.forEach(entry => {
+                            if (!entry || !entry.selector) return;
+                            const a = root.querySelector(entry.selector);
+                            if (!a || !isVisibleEl(a)) return;
+                            if (entry.text != null) a.textContent = get(entry.text);
+                            if (entry.href != null) a.setAttribute('href', get(entry.href));
+                            if (entry.target != null) a.setAttribute('target', get(entry.target));
+                            if (entry.title != null) a.setAttribute('title', get(entry.title));
+                        });
+                    }
+                    // texts (bulk by index)
+                    const textNodes = getVisibleTextNodesWithin(root);
+                    if (Array.isArray(conf.texts)) {
+                        textNodes.forEach((node,i)=>{ if (conf.texts[i] != null) node.nodeValue = get(conf.texts[i]); });
+                    }
+                    // links (bulk by index)
+                    const anchors = Array.from(root.querySelectorAll('a')).filter(isVisibleEl);
+                    if (Array.isArray(conf.links)) {
+                        anchors.forEach((a,i)=>{
+                            const entry = conf.links[i];
+                            if (!entry) return;
+                            if (entry.text != null) a.textContent = get(entry.text);
+                            if (entry.href != null) a.setAttribute('href', get(entry.href));
+                            if (entry.target != null) a.setAttribute('target', get(entry.target));
+                            if (entry.title != null) a.setAttribute('title', get(entry.title));
+                        });
+                    }
+                };
+                const applyOverlayConfig = async () => {
+                    const resp = await fetch(`content.json?ts=${Date.now()}`, { cache: 'no-store' });
+                    if (!resp.ok) return;
+                    const base = await resp.json();
+                    const defaultLocale = (base && base.localization && base.localization.defaultLocale) || 'en';
+                    const locale = resolveLocaleOverlay(base);
+                    const overlayConf = base && base.overlay ? base.overlay : null;
+                    const root = document.getElementById(CONTENT_ID) || document.getElementById(OVERLAY_ID);
+                    if (overlayConf && root) applyConfigToRoot(root, overlayConf, locale, defaultLocale);
+                };
+            })();
+        </script>
+        <script>
+            // Remove all footer links on the main page, but keep the logo (non-clickable)
+            (function(){
+                const removeFooterLinks = () => {
+                    document.querySelectorAll('footer a').forEach(a => {
+                        const hasLogo = !!a.querySelector('[title="38 Degrees Logo"]');
+                        if (hasLogo) {
+                            const span = document.createElement('span');
+                            if (a.getAttribute('title')) span.setAttribute('title', a.getAttribute('title'));
+                            span.className = a.className || '';
+                            span.innerHTML = a.innerHTML;
+                            a.replaceWith(span);
+                        } else {
+                            a.remove();
+                        }
+                    });
+                };
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', removeFooterLinks, { once: true });
+                } else {
+                    removeFooterLinks();
                 }
             })();
         </script>

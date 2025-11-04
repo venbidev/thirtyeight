@@ -14,6 +14,10 @@
     "progress": "#FF7900",
     "progressTrack": "#FFCC9E"
   },
+  "petition": {
+    "signed": 23444,
+    "goal": 100000
+  },
   "textNodes": [
     {
       "selector": "p.MuiTypography-root.MuiTypography-body1.css-115xyw6",
@@ -189,28 +193,6 @@
         "es": " por ejemplo para entregar esta campaña a la persona responsable de decidir.",
         "it": " ad esempio per consegnare questa campagna al decisore.",
         "cs": " například k předání této kampaně příslušnému rozhodovateli."
-      }
-    },
-    {
-      "selector": "h4.MuiTypography-root.MuiTypography-h4.css-1zbqr0",
-      "textIndex": 0,
-      "value": {
-        "en": "98 206",
-        "ro": "98 206",
-        "es": "98 206",
-        "it": "98 206",
-        "cs": "98 206"
-      }
-    },
-    {
-      "selector": "div.MuiBox-root.css-fmxvnb:nth-of-type(1) > p.MuiTypography-root.MuiTypography-body2.css-19423n5",
-      "textIndex": 0,
-      "value": {
-        "en": "of 200 000 signatures",
-        "ro": "din 200 000 de semnături",
-        "es": "de 200 000 firmas",
-        "it": "di 200 000 firme",
-        "cs": "z 200 000 podpisů"
       }
     },
     {
@@ -483,6 +465,115 @@
     "intervalMs": 3000,
     "selector": "p.MuiTypography-root.MuiTypography-body2.css-17gi595 > strong"
   },
+  "overlay": {
+    "textBySelector": {
+      "p.MuiTypography-root.MuiTypography-body1.css-11ouci3": {
+        "en": "Thanks for adding your name! Before you go - can you share this petition to take it closer to victory?",
+        "ro": "Mulțumim că ți-ai adăugat numele! Înainte să pleci, poți distribui această petiție ca să o aducem mai aproape de victorie?",
+        "es": "¡Gracias por sumar tu nombre! Antes de irte, ¿puedes compartir esta petición para acercarla a la victoria?",
+        "it": "Grazie per aver aggiunto il tuo nome! Prima di andare, puoi condividere questa petizione per avvicinarla alla vittoria?",
+        "cs": "Děkujeme za přidání vašeho jména! Než odejdete, můžete tuto petici sdílet a posunout ji blíž k vítězství?"
+      },
+      "h6.MuiTypography-root.MuiTypography-h6.css-jh78d6": {
+        "en": "Thanks for adding your name! Before you go - can you share this petition to take it closer to victory?",
+        "ro": "Mulțumim că ți-ai adăugat numele! Înainte să pleci, poți distribui această petiție ca să o aducem mai aproape de victorie?",
+        "es": "¡Gracias por sumar tu nombre! Antes de irte, ¿puedes compartir esta petición para acercarla a la victoria?",
+        "it": "Grazie per aver aggiunto il tuo nome! Prima di andare, puoi condividere questa petizione per avvicinarla alla vittoria?",
+        "cs": "Děkujeme za přidání vašeho jména! Než odejdete, můžete tuto petici sdílet a posunout ji blíž k vítězství?"
+      },
+      ".css-i3pbo > div > span": {
+        "en": "As a people-powered movement, we can only win change if enough of us sign our names and pile on the pressure - it takes just 30 seconds to share.",
+        "ro": "Fiind o mișcare susținută de oameni, putem câștiga doar dacă suficienți dintre noi își adaugă numele și pun presiune – partajarea durează doar 30 de secunde.",
+        "es": "Como movimiento impulsado por la gente, solo lograremos el cambio si suficientes nos sumamos y hacemos presión: compartir toma solo 30 segundos.",
+        "it": "Come movimento guidato dalle persone, possiamo vincere solo se in tanti firmiamo e facciamo pressione: condividere richiede solo 30 secondi.",
+        "cs": "Jsme hnutí poháněné lidmi – změnu vyhrajeme jen tehdy, když nás bude dost a vyvineme tlak. Sdílení zabere pouhých 30 sekund."
+      },
+      "p.MuiTypography-root.MuiTypography-body1.css-12jh7xw": {
+        "en": "Direct messages can be up to 4 times more likely to convince people to take part:",
+        "ro": "Mesajele directe pot fi de până la 4 ori mai eficiente în a convinge oamenii să participe:",
+        "es": "Los mensajes directos pueden ser hasta 4 veces más eficaces para convencer a la gente de participar:",
+        "it": "I messaggi diretti possono essere fino a 4 volte più efficaci nel convincere le persone a partecipare:",
+        "cs": "Přímé zprávy mohou být až 4× účinnější při přesvědčování lidí, aby se zapojili:"
+      },
+      "#outlined-read-only-input-label": {
+        "en": "Copy link",
+        "ro": "Copiază linkul",
+        "es": "Copiar enlace",
+        "it": "Copia link",
+        "cs": "Zkopírovat odkaz"
+      },
+      "legend.css-14lo706 > span": {
+        "en": "Copy link",
+        "ro": "Copiază linkul",
+        "es": "Copiar enlace",
+        "it": "Copia link",
+        "cs": "Zkopírovat odkaz"
+      },
+      "p.MuiTypography-root.MuiTypography-body1.css-6kaul7": {
+        "en": "Skip this step",
+        "ro": "Sari peste acest pas",
+        "es": "Saltar este paso",
+        "it": "Salta questo passaggio",
+        "cs": "Přeskočit tento krok"
+      },
+      "a[href*=\"api.whatsapp.com/send\"] p.MuiTypography-root.MuiTypography-body1.css-14o42bw": {
+        "en": "Share on WhatsApp",
+        "ro": "Distribuie pe WhatsApp",
+        "es": "Compartir en WhatsApp",
+        "it": "Condividi su WhatsApp",
+        "cs": "Sdílet na WhatsApp"
+      },
+      "a[href*=\"facebook.com/sharer\"] p.MuiTypography-root.MuiTypography-body1.css-14o42bw": {
+        "en": "Share on Facebook",
+        "ro": "Distribuie pe Facebook",
+        "es": "Compartir en Facebook",
+        "it": "Condividi su Facebook",
+        "cs": "Sdílet na Facebooku"
+      },
+      "a[href*=\"twitter.com/intent/tweet\"] p.MuiTypography-root.MuiTypography-body1.css-14o42bw": {
+        "en": "Share on X",
+        "ro": "Distribuie pe X",
+        "es": "Compartir en X",
+        "it": "Condividi su X",
+        "cs": "Sdílet na X"
+      }
+    },
+    "linksBySelector": {
+      "a[href*=\"api.whatsapp.com/send\"]": {
+        "href": {
+          "en": "https://api.whatsapp.com/send?text=%F0%9F%9A%A8%20Boris%20Johnson%E2%80%99s%20secret%20deals%2C%20shady%20lobbying%2C%20and%20cash%20grabs%20are%20exposed%20-%20all%20while%20he%20was%20PM.%20After%20leaving%20office%2C%20he%20cashed%20in%20big%2C%20raking%20in%20millions%20from%20private%20gigs%20and%20business%20deals.%20And%20an%20official%20watchdog%20has%20even%20confirmed%20he%20broke%20the%20rules.%20%20And%20yet%20he%E2%80%99s%20still%20pocketing%20%C2%A3115%2C000%20of%20OUR%20money%20every%20year%20-%20an%20allowance%20meant%20for%20public%20duties.%20It%E2%80%99s%20reported%20he%27s%20using%20it%20to%20fund%20his%20private%20empire%20while%20under%20investigation.%20It%20stinks.%20We%20can%E2%80%99t%20stay%20silent.%20That%27s%20why%20I%27ve%20signed%20the%20petition%20to%20suspend%20his%20ex-PM%20allowance%20until%20the%20investigation%20is%20complete.%20Join%20me%20and%20let%E2%80%99s%20make%20sure%20he%20doesn%E2%80%99t%20keep%20using%20OUR%20money%20while%20he%E2%80%99s%20under%20scrutiny%3A%20+https://38d.gs/bojo-allowance"
+        },
+        "target": {
+          "en": "_blank"
+        },
+        "title": {
+          "en": "Share on WhatsApp"
+        }
+      },
+      "a[href*=\"facebook.com/sharer\"]": {
+        "href": {
+          "en": "http://www.facebook.com/sharer/sharer.php?u=https://38d.gs/bojo-allowance"
+        },
+        "target": {
+          "en": "_blank"
+        },
+        "title": {
+          "en": "Share on Facebook"
+        }
+      },
+      "a[href*=\"twitter.com/intent/tweet\"]": {
+        "href": {
+          "en": "http://twitter.com/intent/tweet?url=https://38d.gs/bojo-allowance&text=%F0%9F%9A%A8Boris%20Johnson%E2%80%99s%20secret%20cash%20grabs%20exposed.%20An%20official%20watchdog%20confirms%20he%20broke%20the%20rules%20with%20his%20shady%20deals%2C%20but%20he%E2%80%99s%20still%20pocketing%20%C2%A3115%2C000%20of%20OUR%20money%20every%20year.%20Sign%20the%20petition%20to%20suspend%20his%20ex-PM%20allowance%3A%20"
+        },
+        "target": {
+          "en": "_blank"
+        },
+        "title": {
+          "en": "Share on X"
+        }
+      }
+    }
+  },
   "localization": {
     "defaultLocale": "en",
     "urlParam": "lang",
@@ -495,41 +586,5 @@
       "CZ": "cs"
     }
   },
-  "locales": {
-    "en": {
-      "_note": "Base (English) is defined at the root of this file. Add only overrides here if needed."
-    },
-    "ro": {
-      "_note": "Romanian overrides go here. Example: put translated strings in textBySelector/htmlBySelector or provide full textNodes array.",
-      "textBySelector": {},
-      "htmlBySelector": {},
-      "linksBySelector": {},
-      "texts": [],
-      "links": []
-    },
-    "es": {
-      "_note": "Spanish overrides go here.",
-      "textBySelector": {},
-      "htmlBySelector": {},
-      "linksBySelector": {},
-      "texts": [],
-      "links": []
-    },
-    "it": {
-      "_note": "Italian overrides go here.",
-      "textBySelector": {},
-      "htmlBySelector": {},
-      "linksBySelector": {},
-      "texts": [],
-      "links": []
-    },
-    "cs": {
-      "_note": "Czech overrides go here.",
-      "textBySelector": {},
-      "htmlBySelector": {},
-      "linksBySelector": {},
-      "texts": [],
-      "links": []
-    }
-  }
+  "locales": {}
 }
