@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-scrapbook-source="https://act.38degrees.org.uk/act/suspend-johnsons-allowance" data-scrapbook-create="20251103192750813"><!-- Built: Wed Oct 29 2025 08:32:17 GMT+0000 (Coordinated Universal Time) --><!-- Commit: b7d10a4dad594851a03c4985ce70e4e87bb508ca -->
+<html lang="en" data-scrapbook-source="https://act.38degrees.org.uk/act/suspend-johnsons-allowance" data-scrapbook-create="20251103214220915"><!-- Built: Wed Oct 29 2025 08:32:17 GMT+0000 (Coordinated Universal Time) --><!-- Commit: b7d10a4dad594851a03c4985ce70e4e87bb508ca -->
 
 <head>
     <meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
@@ -4516,7 +4516,7 @@
                                                 </div>
                                             </div>
                                             <div aria-invalid="true" class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-1g6rwhu"><label data-shrink="false" for="member-phone" id="member-phone-label" class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1d6l3sq">Phone number<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk css-sp68t1"> *</span></label>
-                                              <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-lqbpcy"><input aria-invalid="false" id="member-phone" required type="tel" inputmode="tel" pattern="^\+?[0-9\-\s().]{7,20}$" class="MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq" value="">
+                                              <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-lqbpcy"><input aria-invalid="false" id="member-phone" required type="tel" inputmode="tel" pattern="^\+?[0-9\- .()]{7,20}$" class="MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq" value="">
                                                 <fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-igs3ac">
                                                   <legend class="css-yjsfm1"><span>Phone number *</span></legend>
                                                 </fieldset>
@@ -5278,7 +5278,17 @@
             (function(){
                 const OVERLAY_ID = 'helpOverlay';
                 const CONTENT_ID = 'helpOverlayContent';
-                const SRC_PREFIX = '20251103214220915/';
+                const computeOverlaySrcPrefix = () => {
+                    try {
+                        const path = (window.location && window.location.pathname) || '/';
+                        // directory containing the current document, including trailing slash
+                        const baseDir = path.replace(/[^/]*$/, '');
+                        return baseDir;
+                    } catch (_) {
+                        return '';
+                    }
+                };
+                const SRC_PREFIX = computeOverlaySrcPrefix(); // e.g. '/home/' or '/'
 
                 const isExternal = (u) => /^(?:[a-z]+:)?\/\//i.test(u) || /^(data:|mailto:|tel:)/i.test(u);
                 const prefixUrl = (u) => {
@@ -5329,7 +5339,7 @@
                     content.classList.add('help-loading');
                     content.textContent = 'Loading…';
                     try {
-                        const resp = await fetch(SRC_PREFIX + 'index.html', { cache: 'no-store' });
+                        const resp = await fetch(SRC_PREFIX + 'help.html', { cache: 'no-store' });
                         if (!resp.ok) throw new Error('Failed to load second page');
                         const html = await resp.text();
                         const parser = new DOMParser();
@@ -5636,7 +5646,7 @@
                     }
                 };
                 const applyOverlayConfig = async () => {
-                    const resp = await fetch(`content.json?ts=${Date.now()}`, { cache: 'no-store' });
+                    const resp = await fetch(`${SRC_PREFIX}content.json?ts=${Date.now()}`, { cache: 'no-store' });
                     if (!resp.ok) return;
                     const base = await resp.json();
                     const defaultLocale = (base && base.localization && base.localization.defaultLocale) || 'en';
