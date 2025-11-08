@@ -44,18 +44,10 @@
     <meta property="fb:app_id" content="106018783413240" />
 
     <title>Suspend Boris Johnson's taxpayer allowance</title>
-  <link rel="shortcut icon" href="/media/favicon-32.png" />
+  <link rel="shortcut icon" href="favicon-32.png" />
     <script src="theme.js" defer></script>
     <script>
       (function(){
-        // Compute base prefix for this document so content.json and assets
-        // resolve correctly when hosted under a subpath (e.g. /home/).
-        const BASE_PREFIX = (function(){
-          try {
-            const p = String(location.pathname || '/');
-            return p.endsWith('/') ? p : p.replace(/\/[^\/]*$/, '/');
-          } catch(e) { return '/'; }
-        })();
         // Lightweight localization for the second page when opened directly
         const getLocalizedValue = (value, locale, def='en') => {
           if (value == null) return '';
@@ -127,7 +119,7 @@
         };
         const run = async () => {
           try {
-            const r = await fetch(BASE_PREFIX + 'content.json?ts='+Date.now(), { cache: 'no-store' });
+            const r = await fetch('../content.json?ts='+Date.now(), { cache: 'no-store' });
             if (!r.ok) return;
             const conf = await r.json();
             const locale = resolveLocale(conf);
@@ -193,84 +185,84 @@
         font-style: normal;
         font-display: block;
         font-weight: 400;
-        src: url("/fonts/Satoshi-Regular.woff") format("woff");
+        src: url("Satoshi-Regular.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 700;
-        src: url("/fonts/Satoshi-Bold.woff") format("woff");
+        src: url("Satoshi-Bold.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 900;
-        src: url("/fonts/Satoshi-Black.woff") format("woff");
+        src: url("Satoshi-Black.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 900;
-        src: url("/fonts/Satoshi-BlackItalic.woff") format("woff");
+        src: url("Satoshi-BlackItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 400;
-        src: url("/fonts/Satoshi-Italic.woff") format("woff");
+        src: url("Satoshi-Italic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 700;
-        src: url("/fonts/Satoshi-BoldItalic.woff") format("woff");
+        src: url("Satoshi-BoldItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-Light.woff") format("woff");
+        src: url("Satoshi-Light.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-LightItalic.woff") format("woff");
+        src: url("Satoshi-LightItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 500;
-        src: url("/fonts/Satoshi-Medium.woff") format("woff");
+        src: url("Satoshi-Medium.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 500;
-        src: url("/fonts/Satoshi-Bold.woff") format("woff");
+        src: url("Satoshi-Bold.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-Variable.woff") format("woff");
+        src: url("Satoshi-Variable.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-VariableItalic.woff") format("woff");
+        src: url("Satoshi-VariableItalic.woff") format("woff");
       }
     </style>
     <style data-emotion="css-global" data-s="">
@@ -310,84 +302,84 @@
         font-style: normal;
         font-display: block;
         font-weight: 400;
-        src: url("/fonts/Satoshi-Regular.woff") format("woff");
+        src: url("Satoshi-Regular.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 700;
-        src: url("/fonts/Satoshi-Bold.woff") format("woff");
+        src: url("Satoshi-Bold.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 900;
-        src: url("/fonts/Satoshi-Black.woff") format("woff");
+        src: url("Satoshi-Black.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 900;
-        src: url("/fonts/Satoshi-BlackItalic.woff") format("woff");
+        src: url("Satoshi-BlackItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 400;
-        src: url("/fonts/Satoshi-Italic.woff") format("woff");
+        src: url("Satoshi-Italic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 700;
-        src: url("/fonts/Satoshi-BoldItalic.woff") format("woff");
+        src: url("Satoshi-BoldItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-Light.woff") format("woff");
+        src: url("Satoshi-Light.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-LightItalic.woff") format("woff");
+        src: url("Satoshi-LightItalic.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 500;
-        src: url("/fonts/Satoshi-Medium.woff") format("woff");
+        src: url("Satoshi-Medium.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 500;
-        src: url("/fonts/Satoshi-Bold.woff") format("woff");
+        src: url("Satoshi-Bold.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: normal;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-Variable.woff") format("woff");
+        src: url("Satoshi-Variable.woff") format("woff");
       }
       @font-face {
         font-family: Satoshi;
         font-style: italic;
         font-display: block;
         font-weight: 300;
-        src: url("/fonts/Satoshi-VariableItalic.woff") format("woff");
+        src: url("Satoshi-VariableItalic.woff") format("woff");
       }
     </style>
     <style data-emotion="css-global" data-s="">
@@ -3540,7 +3532,7 @@
           rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
           rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
           rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  background-image: url("/media/bg-share-orange-post.png");
+  background-image: url("bg-share-orange-post.png");
         background-color: transparent;
         background-size: cover;
         background-repeat: no-repeat;
@@ -4518,7 +4510,7 @@
           <div class="MuiContainer-root MuiContainer-maxWidthXl css-1h3un79">
             <div class="MuiToolbar-root MuiToolbar-regular css-txd8qd">
               
-                <img src="/media/logo-38degrees.svg" alt="38 Degrees Logo" class="MuiBox-root css-pobrvn" data-image-role="logo" />
+                <img src="logo-38degrees.svg" alt="38 Degrees Logo" class="MuiBox-root css-pobrvn" data-image-role="logo" />
               </a>
               <div class="MuiBox-root css-f00iec">
                 <a
@@ -4564,7 +4556,7 @@
           <div class="MuiContainer-root MuiContainer-maxWidthXl css-1h3un79">
             <div class="MuiToolbar-root MuiToolbar-regular css-198lrpf">
               
-                <img src="/media/logo-38degrees.svg" alt="38 Degrees Logo" class="MuiBox-root css-7sozuz" data-image-role="logo" />
+                <img src="logo-38degrees.svg" alt="38 Degrees Logo" class="MuiBox-root css-7sozuz" data-image-role="logo" />
               </a>
               <div class="MuiBox-root css-1ovggvf">
                 <button
